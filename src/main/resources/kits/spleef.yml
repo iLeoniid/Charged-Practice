@@ -1,0 +1,29 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Spleef Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Spleef"
+description: "Break blocks under opponents"
+
+armor: {}
+
+inventory:
+  0:
+    material: DIAMOND_SPADE
+    name: "§fSpleef Shovel"
+    unbreakable: true
+    efficiency: 5
+
+settings:
+  natural-regeneration: false
+  hunger-enabled: false
+  fall-damage: false
+  void-damage: true
+  pvp-damage: false
+  block-break: true
+  block-place: false
+  
+arena:
+  floor-material: SNOW_BLOCK
+  regenerate-blocks: true
+  regen-delay: 0

@@ -1,0 +1,49 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# BedWars Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "BedWars"
+description: "Protect bed, eliminate teams"
+
+armor:
+  helmet:
+    material: LEATHER_HELMET
+    color: RED
+  chestplate:
+    material: LEATHER_CHESTPLATE
+    color: RED
+  leggings:
+    material: LEATHER_LEGGINGS
+    color: RED
+  boots:
+    material: LEATHER_BOOTS
+    color: RED
+
+inventory:
+  0:
+    material: WOOD_SWORD
+    name: "§fSword"
+
+settings:
+  natural-regeneration: true
+  hunger-enabled: true
+  build: true
+  respawn-on-death: true
+  keep-inventory: true
+  
+shop:
+    enabled: true
+    currency: IRON_INGOT
+    
+generators:
+  enabled: true
+  iron-speed: 1.0
+  gold-speed: 8.0
+  diamond-speed: 30.0
+  emerald-speed: 60.0
+  
+gamemode:
+  type: "bed_wars"
+  teams: 4
+  players-per-team: 2
+  sudden-death-time: 1200

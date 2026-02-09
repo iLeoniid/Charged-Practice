@@ -1,0 +1,298 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - Division System Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DIVISIONS (9 divisions total)
+# Each division has ELO ranges, sub-ranks, rewards, and cosmetics
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+divisions:
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ IRON (0-999 ELO)                                                │
+  # └─────────────────────────────────────────────────────────────────┘
+  iron:
+    name: "Iron"
+    display-name: "&7Iron"
+    color: "&7"
+    
+    # ELO range
+    min-elo: 0
+    max-elo: 999
+    
+    # Sub-ranks (IV, III, II, I)
+    sub-ranks: 4
+    
+    # Icon for GUI
+    icon: "IRON_INGOT"
+    
+    # Rewards and bonuses
+    reward:
+      win-multiplier: 1.0
+      loss-multiplier: 1.0
+      queue-priority: 1
+      coins-per-win: 10
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ BRONZE (1000-1299 ELO)                                          │
+  # └─────────────────────────────────────────────────────────────────┘
+  bronze:
+    name: "Bronze"
+    display-name: "&6Bronze"
+    color: "&6"
+    
+    min-elo: 1000
+    max-elo: 1299
+    sub-ranks: 4
+    icon: "CLAY_BRICK"
+    
+    reward:
+      win-multiplier: 1.05
+      loss-multiplier: 0.95
+      queue-priority: 2
+      coins-per-win: 15
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ SILVER (1300-1599 ELO)                                          │
+  # └─────────────────────────────────────────────────────────────────┘
+  silver:
+    name: "Silver"
+    display-name: "&fSilver"
+    color: "&f"
+    
+    min-elo: 1300
+    max-elo: 1599
+    sub-ranks: 4
+    icon: "IRON_BLOCK"
+    
+    reward:
+      win-multiplier: 1.1
+      loss-multiplier: 0.9
+      queue-priority: 3
+      coins-per-win: 20
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ GOLD (1600-1899 ELO)                                            │
+  # └─────────────────────────────────────────────────────────────────┘
+  gold:
+    name: "Gold"
+    display-name: "&eGold"
+    color: "&e"
+    
+    min-elo: 1600
+    max-elo: 1899
+    sub-ranks: 4
+    icon: "GOLD_BLOCK"
+    
+    reward:
+      win-multiplier: 1.15
+      loss-multiplier: 0.85
+      queue-priority: 4
+      coins-per-win: 25
+      cosmetic-unlock: "particle_gold"
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ PLATINUM (1900-2199 ELO)                                        │
+  # └─────────────────────────────────────────────────────────────────┘
+  platinum:
+    name: "Platinum"
+    display-name: "&bPlatinum"
+    color: "&b"
+    
+    min-elo: 1900
+    max-elo: 2199
+    sub-ranks: 3
+    icon: "DIAMOND"
+    
+    reward:
+      win-multiplier: 1.2
+      loss-multiplier: 0.8
+      queue-priority: 5
+      coins-per-win: 30
+      cosmetic-unlock: "particle_platinum"
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ DIAMOND (2200-2499 ELO)                                         │
+  # └─────────────────────────────────────────────────────────────────┘
+  diamond:
+    name: "Diamond"
+    display-name: "&9Diamond"
+    color: "&9"
+    
+    min-elo: 2200
+    max-elo: 2499
+    sub-ranks: 3
+    icon: "DIAMOND_BLOCK"
+    
+    reward:
+      win-multiplier: 1.25
+      loss-multiplier: 0.75
+      queue-priority: 6
+      coins-per-win: 40
+      cosmetic-unlock: "particle_diamond"
+      tag: "&b[DIAMOND]"
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ MASTER (2500-2899 ELO)                                          │
+  # └─────────────────────────────────────────────────────────────────┘
+  master:
+    name: "Master"
+    display-name: "&dMaster"
+    color: "&d"
+    
+    min-elo: 2500
+    max-elo: 2899
+    sub-ranks: 2
+    icon: "NETHER_STAR"
+    
+    reward:
+      win-multiplier: 1.3
+      loss-multiplier: 0.7
+      queue-priority: 7
+      coins-per-win: 50
+      cosmetic-unlock: "particle_master"
+      tag: "&d[MASTER]"
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ GRANDMASTER (2900-3299 ELO)                                     │
+  # └─────────────────────────────────────────────────────────────────┘
+  grandmaster:
+    name: "Grandmaster"
+    display-name: "&cGrandmaster"
+    color: "&c"
+    
+    min-elo: 2900
+    max-elo: 3299
+    sub-ranks: 1
+    icon: "BEACON"
+    
+    reward:
+      win-multiplier: 1.4
+      loss-multiplier: 0.6
+      queue-priority: 8
+      coins-per-win: 75
+      cosmetic-unlock: "particle_grandmaster"
+      tag: "&c[GRANDMASTER]"
+      exclusive-cosmetic: true
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ CHAMPION (3300+ ELO)                                            │
+  # └─────────────────────────────────────────────────────────────────┘
+  champion:
+    name: "Champion"
+    display-name: "&4&lChampion"
+    color: "&4"
+    
+    min-elo: 3300
+    max-elo: 9999
+    sub-ranks: 1
+    icon: "DRAGON_EGG"
+    
+    reward:
+      win-multiplier: 1.5
+      loss-multiplier: 0.5
+      queue-priority: 10
+      coins-per-win: 100
+      cosmetic-unlock: "particle_champion"
+      tag: "&4&l[CHAMPION]"
+      leaderboard-featured: true
+      exclusive-cosmetic: true
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# SEASON CONFIGURATION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+season:
+  # Season duration in days
+  duration-days: 90
+  
+  # Percentage of ELO that carries over to next season (0.75 = 75%)
+  reset-percentage: 0.75
+  
+  # Season end rewards
+  rewards:
+    # Top 10 players
+    top-10:
+      coins: 10000
+      exclusive-tag: true
+      title: "&6&lS{season} TOP 10"
+    
+    # Top 100 players
+    top-100:
+      coins: 5000
+      title: "&e&lS{season} TOP 100"
+    
+    # Division-based rewards (given to all who reached division)
+    division-rewards:
+      champion: 10000
+      grandmaster: 7000
+      master: 5000
+      diamond: 3000
+      platinum: 2000
+      gold: 1000
+      silver: 500
+      bronze: 250
+      iron: 100
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PROMOTION/DEMOTION SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+promotion:
+  # Announce in chat when promoted
+  announce: true
+  
+  # Play sound on promotion
+  sound:
+    enabled: true
+    sound-type: "LEVEL_UP"
+    volume: 1.0
+    pitch: 1.0
+  
+  # Particle effect on promotion
+  particles:
+    enabled: true
+    particle-type: "FIREWORKS_SPARK"
+    amount: 50
+
+demotion:
+  # Announce in chat when demoted
+  announce: true
+  
+  # Play sound on demotion
+  sound:
+    enabled: true
+    sound-type: "VILLAGER_NO"
+    volume: 1.0
+    pitch: 0.5
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DIVISION DISPLAY
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+display:
+  # Show division in tab list
+  show-in-tab: true
+  
+  # Show division in name tag
+  show-in-nametag: true
+  
+  # Format for tab list
+  tab-format: "{division_color}{division} {player_name}"
+  
+  # Format for nametag
+  nametag-format: "{division_color}[{division}] {player_name}"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# MATCHMAKING BASED ON DIVISION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+matchmaking:
+  # Prefer matching players in same division
+  prefer-same-division: true
+  
+  # Max division difference allowed
+  max-division-difference: 2
+  
+  # Expand range after waiting (seconds)
+  expand-after-seconds: 30

@@ -1,0 +1,47 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# MLGRush Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "MLGRush"
+description: "Rush and bed break"
+
+armor:
+  helmet:
+    material: LEATHER_HELMET
+    color: BLUE
+  chestplate:
+    material: LEATHER_CHESTPLATE
+    color: BLUE
+  leggings:
+    material: LEATHER_LEGGINGS
+    color: BLUE
+  boots:
+    material: LEATHER_BOOTS
+    color: BLUE
+
+inventory:
+  0:
+    material: WOOD_SWORD
+    name: "§fSword"
+    unbreakable: true
+  1:
+    material: WOOD_PICKAXE
+    name: "§fPickaxe"
+    unbreakable: true
+  2-5:
+    material: SANDSTONE
+    amount: 64
+
+settings:
+  natural-regeneration: true
+  hunger-enabled: false
+  build: true
+  build-limit: 128
+  fall-damage: false
+  void-damage: true
+  respawn-on-death: true
+  
+gamemode:
+  type: "bed_break"
+  beds-to-break: 3
+  spawn-protection: 5

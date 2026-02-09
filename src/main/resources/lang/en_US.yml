@@ -1,0 +1,33 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - English (US)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+prefix: "§6§lCharged §8»§7 "
+no-permission: "§cYou don't have permission."
+player-not-found: "§cPlayer not found."
+
+# Match
+match:
+  starting: "§aStarting duel against §f{opponent}§a..."
+  countdown: "§eStarting in §f{seconds}§e seconds..."
+  started: "§a§lFIGHT!"
+  winner: "§a§l✓ §aWinner: §f{winner}"
+  loser: "§c§l✗ §cLoser: §f{loser}"
+
+# Queue
+queue:
+  joined: "§a✓ Joined §f{mode}§a queue"
+  left: "§c✗ Left queue"
+  searching: "§eSearching for opponent... ({time}s)"
+  found: "§aOpponent found!"
+
+# Stats
+stats:
+  title: "§6§l━━━ {player}'s Statistics ━━━"
+  wins: "§7Wins: §a{wins}"
+  losses: "§7Losses: §c{losses}"
+  elo: "§7ELO: §f{elo}"
+
+# Commands
+commands:
+  usage: "§cUsage: {usage}"

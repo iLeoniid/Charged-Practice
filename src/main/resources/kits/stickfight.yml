@@ -1,0 +1,33 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# StickFight Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "StickFight"
+description: "Knockback stick combat"
+
+armor: {}
+
+inventory:
+  0:
+    material: STICK
+    name: "§eKnockback Stick"
+    knockback: 5
+    unbreakable: true
+
+settings:
+  natural-regeneration: false
+  hunger-enabled: false
+  fall-damage: false
+  void-damage: true
+  damage: 0.5
+  show-health: false
+  
+combat:
+  knockback-profile: "combo"
+  knockback-multiplier: 3.0
+  no-fall-damage: true
+  
+effects:
+  - type: SPEED
+    amplifier: 1
+    duration: 999999

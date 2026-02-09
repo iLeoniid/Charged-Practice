@@ -1,0 +1,47 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# SkyWars Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "SkyWars"
+description: "Island survival PvP"
+
+armor:
+  helmet:
+    material: CHAINMAIL_HELMET
+  chestplate:
+    material: CHAINMAIL_CHESTPLATE
+  leggings:
+    material: CHAINMAIL_LEGGINGS
+  boots:
+    material: CHAINMAIL_BOOTS
+
+inventory:
+  0:
+    material: STONE_SWORD
+    name: "§fSword"
+  1:
+    material: BOW
+  2:
+    material: ARROW
+    amount: 8
+  3:
+    material: COOKED_BEEF
+    amount: 16
+  4-6:
+    material: WOOD_PLANKS
+    amount: 32
+
+settings:
+  natural-regeneration: true
+  hunger-enabled: true
+  build: true
+  fall-damage: true
+  void-damage: true
+  chest-loot: true
+  
+gamemode:
+  type: "last_man_standing"
+  starting-islands: 8
+  center-island: true
+  refill-chests: true
+  refill-time: 180

@@ -1,0 +1,142 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - Español (ES)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# General
+prefix: "§6§lCharged §8»§7 "
+no-permission: "§cNo tienes permiso para hacer esto."
+player-not-found: "§cJugador no encontrado."
+player-offline: "§cEl jugador está desconectado."
+
+# Match
+match:
+  starting: "§aIniciando duelo contra §f{opponent}§a..."
+  countdown: "§eIniciando en §f{seconds}§e segundos..."
+  started: "§a§l¡LUCHA!"
+  ended: "§7El duelo ha terminado."
+  winner: "§a§l✓ §aGanador: §f{winner}"
+  loser: "§c§l✗ §cPerdedor: §f{loser}"
+  draw: "§e§lEmpate"
+  
+  stats:
+    kills: "§7Kills: §f{kills}"
+    deaths: "§7Deaths: §f{deaths}"
+    combo: "§7Combo más largo: §f{combo}"
+    duration: "§7Duración: §f{duration}s"
+    elo-change: "§7Cambio ELO: {color}{change}"
+
+# Queue
+queue:
+  joined: "§a✓ Te uniste a la cola de §f{mode}"
+  left: "§c✗ Saliste de la cola"
+  position: "§7Posición en cola: §f#{position}"
+  searching: "§eBuscando oponente... ({time}s)"
+  found: "§a¡Oponente encontrado!"
+  
+  errors:
+    already-in-queue: "§cYa estás en cola."
+    in-match: "§cYa estás en un duelo."
+    mode-disabled: "§cEste modo está deshabilitado."
+
+# Ranked
+ranked:
+  promotion: "§a§l¡PROMOCIÓN! §7→ §f{division}"
+  demotion: "§c§lDEMOCIÓN §7→ §f{division}"
+  division-change: "§7División: §f{division}"
+  elo: "§7ELO: §f{elo}"
+  
+  divisions:
+    iron: "Hierro"
+    gold: "Oro"
+    diamond: "Diamante"
+    master: "Maestro"
+    grandmaster: "Gran Maestro"
+    champion: "Campeón"
+
+# Stats
+stats:
+  title: "§6§l━━━ Estadísticas de {player} ━━━"
+  level: "§7Nivel: §f{level}"
+  wins: "§7Victorias: §a{wins}"
+  losses: "§7Derrotas: §c{losses}"
+  wlr: "§7WLR: §f{wlr}"
+  kills: "§7Kills: §f{kills}"
+  deaths: "§7Deaths: §f{deaths}"
+  kdr: "§7KDR: §f{kdr}"
+  winstreak: "§7Racha: §f{streak}"
+  best-winstreak: "§7Mejor racha: §f{best}"
+
+# Arena
+arena:
+  created: "§aArena §f{name} §acreada."
+  deleted: "§cArena §f{name} §celiminada."
+  not-found: "§cArena no encontrada."
+  in-use: "§cEsta arena está en uso."
+  
+  list:
+    title: "§6§l━━━ Arenas ({count}) ━━━"
+    entry: "§7{name} §8- §f{mode} §8- §a{state}"
+
+# Clan
+clan:
+  created: "§aClan §f[{tag}] {name} §acreado."
+  disbanded: "§cClan disuelto."
+  joined: "§aTE UNISTE A §f[{tag}] {name}"
+  left: "§cSALISTE DE §f[{tag}] {name}"
+  invited: "§7Has sido invitado a §f[{tag}] {name}"
+  kicked: "§cFuiste expulsado de §f[{tag}]"
+  
+  errors:
+    already-in-clan: "§cYa estás en un clan."
+    not-in-clan: "§cNo estás en un clan."
+    tag-taken: "§cEse tag ya está en uso."
+    name-taken: "§cEse nombre ya está en uso."
+    not-leader: "§cSolo el líder puede hacer esto."
+
+# Death Messages
+death:
+  sword: "{killer} §cdestruyó§f a {victim}"
+  fall: "{victim} §7cayó al vacío"
+  void: "{victim} §7cayó al abismo"
+  combo: "{killer} §c§lCOMBO BRUTAL§f de §c{combo}§f hits sobre {victim}"
+  clutch: "{killer} §a§lCLUTCH§f con §c{health}❤§f vs {victim}"
+
+# Commands
+commands:
+  usage: "§cUso: {usage}"
+  
+  duel:
+    sent: "§aSolicitud de duelo enviada a §f{player}"
+    received: "§f{player} §7te ha retado a un duelo."
+    accepted: "§aDuelo aceptado."
+    expired: "§cLa solicitud expiró."
+  
+  spawn:
+    teleported: "§aTeletransportado al spawn."
+    set: "§aSpawn establecido."
+
+# GUI
+gui:
+  previous-page: "§7← Página anterior"
+  next-page: "§7Página siguiente →"
+  close: "§cCerrar"
+  back: "§7← Volver"
+  
+  mode-selection:
+    title: "Seleccionar Modo"
+    ranked: "§6§lRanked"
+    unranked: "§a§lUnranked"
+  
+  settings:
+    title: "Configuración"
+    language: "§7Idioma: §f{language}"
+    scoreboard: "§7Scoreboard: {status}"
+    particles: "§7Partículas: {status}"
+
+# Misc
+misc:
+  enabled: "§aActivado"
+  disabled: "§cDesactivado"
+  loading: "§eCargando..."
+  error: "§c§lERROR: §c{error}"
+  success: "§a§l✓ §a{message}"

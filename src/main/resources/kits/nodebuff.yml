@@ -1,0 +1,66 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# NoDebuff Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "NoDebuff"
+description: "Classic 1.8 PvP with potions and pearls"
+
+# Armor
+armor:
+  helmet:
+    material: DIAMOND_HELMET
+    unbreakable: true
+  chestplate:
+    material: DIAMOND_CHESTPLATE
+    unbreakable: true
+  leggings:
+    material: DIAMOND_LEGGINGS
+    unbreakable: true
+  boots:
+    material: DIAMOND_BOOTS
+    unbreakable: true
+
+# Inventory
+inventory:
+  0:
+    material: DIAMOND_SWORD
+    name: "§fEspada"
+    unbreakable: true
+    
+  1-35:  # Slots 1-35: Health Potions
+    material: POTION
+    name: "§dPoción de Curación II"
+    amount: 1
+    potion-effect: INSTANT_HEAL
+    level: 2
+    splash: true
+  
+  8:  # Slot 8: Ender Pearl
+    material: ENDER_PEARL
+    name: "§5Perla"
+    amount: 16
+
+# Effects
+effects:
+  - type: SPEED
+    amplifier: 1  # Speed II
+    duration: 999999
+    ambient: true
+
+# Settings
+settings:
+  natural-regeneration: false
+  hunger-enabled: false
+  fall-damage: true
+  void-damage: true
+  
+  # Combat
+  combat:
+    hit-delay-ticks: 10  # 1.8 CPS
+    knockback-multiplier: 1.0
+    combo-mode: true
+  
+  # Potions
+  potions:
+    refill-on-kill: true
+    refill-amount: 36  # Full inventory

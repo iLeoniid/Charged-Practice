@@ -1,0 +1,29 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - Português (BR)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+prefix: "§6§lCharged §8»§7 "
+no-permission: "§cVocê não tem permissão."
+player-not-found: "§cJogador não encontrado."
+
+# Match
+match:
+  starting: "§aIniciando duelo contra §f{opponent}§a..."
+  countdown: "§eIniciando em §f{seconds}§e segundos..."
+  started: "§a§lLUTA!"
+  winner: "§a§l✓ §aVencedor: §f{winner}"
+  loser: "§c§l✗ §cPerdedor: §f{loser}"
+
+# Queue
+queue:
+  joined: "§a✓ Entrou na fila de §f{mode}"
+  left: "§c✗ Saiu da fila"
+  searching: "§eProcurando oponente... ({time}s)"
+  found: "§aOponente encontrado!"
+
+# Stats
+stats:
+  title: "§6§l━━━ Estatísticas de {player} ━━━"
+  wins: "§7Vitórias: §a{wins}"
+  losses: "§7Derrotas: §c{losses}"
+  elo: "§7ELO: §f{elo}"

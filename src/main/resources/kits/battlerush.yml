@@ -1,0 +1,49 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# BattleRush Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "BattleRush"
+description: "Fast-paced bed destruction"
+
+armor:
+  helmet:
+    material: IRON_HELMET
+  chestplate:
+    material: IRON_CHESTPLATE
+  leggings:
+    material: IRON_LEGGINGS
+  boots:
+    material: IRON_BOOTS
+
+inventory:
+  0:
+    material: IRON_SWORD
+    name: "§fSword"
+    sharpness: 1
+  1:
+    material: WOOD_PICKAXE
+    name: "§fPickaxe"
+    efficiency: 3
+  2-4:
+    material: SANDSTONE
+    amount: 64
+  8:
+    material: GOLDEN_APPLE
+    amount: 4
+
+settings:
+  natural-regeneration: false
+  hunger-enabled: false
+  build: true
+  fall-damage: false
+  void-damage: true
+  respawn-on-death: true
+  
+combat:
+  damage-multiplier: 1.5
+  knockback-profile: "practice"
+  
+gamemode:
+  type: "bed_break"
+  beds-to-break: 5
+  spawn-invincibility: 3

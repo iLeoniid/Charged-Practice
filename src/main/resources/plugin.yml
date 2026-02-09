@@ -1,0 +1,170 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED PRACTICE - Plugin Manifest
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: Charged
+version: 2.0.0-REBORN-ULTRA
+main: com.charged.Charged
+author: YourName
+description: The most advanced Minecraft Practice plugin
+website: https://yourwebsite.com
+api-version: 1.8
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# COMMANDS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+commands:
+  charged:
+    description: Main plugin command
+    usage: /<command> [reload|help|version]
+    permission: charged.admin
+    aliases: [practice, pvp]
+    
+  queue:
+    description: Join a queue
+    usage: /<command> <mode>
+    permission: charged.queue
+    aliases: [q, play]
+    
+  leavequeue:
+    description: Leave the queue
+    usage: /<command>
+    permission: charged.queue
+    aliases: [lq, leave]
+    
+  duel:
+    description: Challenge a player
+    usage: /<command> <player> [mode]
+    permission: charged.duel
+    
+  stats:
+    description: View player statistics
+    usage: /<command> [player]
+    permission: charged.stats
+    
+  arena:
+    description: Manage arenas
+    usage: /<command> <create|delete|list|tp> [args]
+    permission: charged.arena.admin
+    
+  spawn:
+    description: Teleport to spawn
+    usage: /<command>
+    permission: charged.spawn
+    
+  clan:
+    description: Clan management
+    usage: /<command> <create|disband|invite|kick|leave|info|list>
+    permission: charged.clan
+    
+  event:
+    description: Event management
+    usage: /<command> <create|join|leave|start|end> [args]
+    permission: charged.event
+    
+  leaderboard:
+    description: View leaderboards
+    usage: /<command> [mode]
+    permission: charged.leaderboard
+    aliases: [lb, top]
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PERMISSIONS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+permissions:
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ ADMIN PERMISSIONS                                               │
+  # └─────────────────────────────────────────────────────────────────┘
+  charged.admin:
+    description: Full admin access
+    default: op
+    children:
+      charged.reload: true
+      charged.arena.admin: true
+      charged.event.admin: true
+      charged.bypass: true
+      
+  charged.reload:
+    description: Reload configuration
+    default: op
+    
+  charged.arena.admin:
+    description: Manage arenas
+    default: op
+    
+  charged.event.admin:
+    description: Manage events
+    default: op
+    
+  charged.bypass:
+    description: Bypass all restrictions
+    default: op
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ PLAYER PERMISSIONS                                              │
+  # └─────────────────────────────────────────────────────────────────┘
+  charged.queue:
+    description: Join queues
+    default: true
+    
+  charged.duel:
+    description: Challenge players
+    default: true
+    
+  charged.stats:
+    description: View statistics
+    default: true
+    
+  charged.spawn:
+    description: Teleport to spawn
+    default: true
+    
+  charged.clan:
+    description: Use clan features
+    default: true
+    
+  charged.event:
+    description: Join events
+    default: true
+    
+  charged.leaderboard:
+    description: View leaderboards
+    default: true
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ VIP PERMISSIONS                                                 │
+  # └─────────────────────────────────────────────────────────────────┘
+  charged.vip:
+    description: VIP features
+    default: false
+    children:
+      charged.deatheffect.vip: true
+      charged.cosmetic.vip: true
+      
+  charged.deatheffect.vip:
+    description: Access to VIP death effects
+    default: false
+    
+  charged.cosmetic.vip:
+    description: Access to VIP cosmetics
+    default: false
+  
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ STAFF PERMISSIONS                                               │
+  # └─────────────────────────────────────────────────────────────────┘
+  charged.staff:
+    description: Staff features
+    default: op
+    children:
+      charged.spectate: true
+      charged.freeze: true
+      
+  charged.spectate:
+    description: Spectate matches
+    default: op
+    
+  charged.freeze:
+    description: Freeze players
+    default: op

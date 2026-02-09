@@ -1,0 +1,44 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# BuildUHC Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "BuildUHC"
+description: "Building blocks and axe combat"
+
+armor:
+  helmet:
+    material: IRON_HELMET
+    unbreakable: true
+  chestplate:
+    material: IRON_CHESTPLATE
+    unbreakable: true
+  leggings:
+    material: IRON_LEGGINGS
+    unbreakable: true
+  boots:
+    material: IRON_BOOTS
+    unbreakable: true
+
+inventory:
+  0:
+    material: IRON_AXE
+    name: "§fAxe"
+    unbreakable: true
+  1:
+    material: COBBLESTONE
+    amount: 64
+  2:
+    material: WOOD
+    amount: 64
+  3:
+    material: WOOD_PLANKS
+    amount: 32
+  8:
+    material: GOLDEN_APPLE
+    amount: 16
+
+settings:
+  natural-regeneration: false
+  hunger-enabled: false
+  build-limit: 10
+  build-height: 20

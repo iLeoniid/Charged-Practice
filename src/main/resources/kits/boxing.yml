@@ -1,0 +1,27 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Boxing Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Boxing"
+description: "Pure melee combat, no armor"
+
+armor: {}
+
+inventory:
+  0:
+    material: DIAMOND_SWORD
+    name: "§fBoxing Sword"
+    unbreakable: true
+
+settings:
+  natural-regeneration: false
+  hunger-enabled: false
+  fall-damage: false
+  show-health: true
+  damage-ticks: 10
+  
+combat:
+  knockback-profile: "vanilla"
+  hit-delay: 10
+  
+effects: []

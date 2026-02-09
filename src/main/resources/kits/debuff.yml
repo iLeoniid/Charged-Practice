@@ -1,0 +1,46 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Debuff Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Debuff"
+description: "Debuff potions and damage"
+
+armor:
+  helmet:
+    material: DIAMOND_HELMET
+    unbreakable: true
+  chestplate:
+    material: DIAMOND_CHESTPLATE
+    unbreakable: true
+  leggings:
+    material: DIAMOND_LEGGINGS
+    unbreakable: true
+  boots:
+    material: DIAMOND_BOOTS
+    unbreakable: true
+
+inventory:
+  0:
+    material: DIAMOND_SWORD
+    name: "§fSword"
+    unbreakable: true
+  1-17:
+    material: POTION
+    name: "§cPotion of Instant Damage"
+    potion-effect: HARM
+    level: 1
+    splash: true
+  18-35:
+    material: POTION
+    name: "§7Potion of Slowness"
+    potion-effect: SLOW
+    level: 1
+    splash: true
+  8:
+    material: ENDER_PEARL
+    amount: 16
+
+effects:
+  - type: SPEED
+    amplifier: 1
+    duration: 999999

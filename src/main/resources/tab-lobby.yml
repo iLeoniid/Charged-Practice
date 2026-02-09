@@ -1,0 +1,28 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Charged - Tab List (Lobby)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+header: |
+  §8« §6§lCharged Practice §8»
+  §7━━━━━━━━━━━━━━━━━━━━
+
+footer: |
+  §7━━━━━━━━━━━━━━━━━━━━
+  §eplay.chargedpvp.net
+
+format:
+  # Info lines
+  lines:
+    1: "§8» §7Online: §f{online_players}§8/§f{max_players}"
+    2: "§8» §7Nivel: §f{player_level} §8| §7ELO: §f{player_elo}"
+    3: "§8» §7Top Global: §6#{global_rank}"
+    4: "§8» §7Próximo evento: §a{next_event}"
+  
+  # Player format by rank
+  players:
+    admin: "§c[ADMIN] §f{player_name}"
+    mod: "§9[MOD] §f{player_name}"
+    vip: "§6[VIP] §f{player_name}"
+    default: "§7{player_name}"
+
+update-interval: 20  # ticks (1 second)

@@ -1,0 +1,414 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED PRACTICE - Main Configuration
+# Version: 2.0.0 REBORN ULTRA
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DATABASE CONFIGURATION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+database:
+  # Type: sqlite or mysql
+  type: "sqlite"
+  
+  # MySQL Settings (only if type is mysql)
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "charged"
+    username: "root"
+    password: "your_password_here"
+    pool-size: 10
+    
+  # SQLite Settings (only if type is sqlite)
+  sqlite:
+    file: "charged.db"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# SPAWN CONFIGURATION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+spawn:
+  world: "world"
+  x: 0.5
+  y: 100.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+  teleport-on-join: true
+  teleport-on-death: true
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# MATCH SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+match:
+  # Countdown before match starts (seconds)
+  countdown: 5
+  
+  # Allow spectators
+  allow-spectators: true
+  
+  # Max spectators per match
+  max-spectators: 10
+  
+  # Send match stats URL after match
+  send-stats-url: true
+  
+  # Keep inventory on death (for specific modes)
+  keep-inventory: false
+  
+  # Void teleport Y level
+  void-level: 0
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# QUEUE SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+queue:
+  # How often to check for matches (ticks, 20 = 1 second)
+  check-interval: 20
+  
+  # Maximum queue time before auto-cancel (seconds, 0 = disabled)
+  max-queue-time: 300
+  
+  # ELO range for matchmaking
+  elo-range:
+    initial: 50
+    increase-per-30s: 25
+    maximum: 500
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# RANKED SYSTEM
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ranked:
+  enabled: true
+  
+  # Starting ELO for new players
+  starting-elo: 1000
+  
+  # ELO calculation
+  k-factor: 32
+  
+  # Minimum matches before ranked
+  placement-matches: 10
+  
+  # Division decay (lose ELO after inactivity)
+  decay:
+    enabled: true
+    days-inactive: 30
+    elo-loss-per-day: 10
+    minimum-elo: 800
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DIVISIONS (CORRECTED & ORGANIZED)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+divisions:
+  iron:
+    name: "Iron"
+    color: "&7"
+    min-elo: 0
+    max-elo: 999
+    rewards:
+      win-bonus: 0
+      loss-protection: 0
+      
+  bronze:
+    name: "Bronze"
+    color: "&6"
+    min-elo: 1000
+    max-elo: 1299
+    rewards:
+      win-bonus: 5
+      loss-protection: 0
+      
+  silver:
+    name: "Silver"
+    color: "&f"
+    min-elo: 1300
+    max-elo: 1599
+    rewards:
+      win-bonus: 10
+      loss-protection: 5
+      
+  gold:
+    name: "Gold"
+    color: "&e"
+    min-elo: 1600
+    max-elo: 1899
+    rewards:
+      win-bonus: 15
+      loss-protection: 5
+      cosmetic: "gold_particle"
+      
+  platinum:
+    name: "Platinum"
+    color: "&b"
+    min-elo: 1900
+    max-elo: 2199
+    rewards:
+      win-bonus: 20
+      loss-protection: 10
+      cosmetic: "platinum_particle"
+      
+  diamond:
+    name: "Diamond"
+    color: "&9"
+    min-elo: 2200
+    max-elo: 2499
+    rewards:
+      win-bonus: 25
+      loss-protection: 10
+      cosmetic: "diamond_particle"
+      tag: "&b[DIAMOND]"
+      
+  master:
+    name: "Master"
+    color: "&d"
+    min-elo: 2500
+    max-elo: 2899
+    rewards:
+      win-bonus: 30
+      loss-protection: 15
+      cosmetic: "master_particle"
+      tag: "&d[MASTER]"
+      
+  grandmaster:
+    name: "Grandmaster"
+    color: "&c"
+    min-elo: 2900
+    max-elo: 3299
+    rewards:
+      win-bonus: 35
+      loss-protection: 15
+      cosmetic: "grandmaster_particle"
+      tag: "&c[GRANDMASTER]"
+      
+  champion:
+    name: "Champion"
+    color: "&4"
+    min-elo: 3300
+    max-elo: 9999
+    rewards:
+      win-bonus: 50
+      loss-protection: 20
+      cosmetic: "champion_particle"
+      tag: "&4&l[CHAMPION]"
+      leaderboard-featured: true
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ARENA SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+arena:
+  # Auto-create arenas on startup
+  auto-create: false
+  
+  # Arena selection method: random, rotation, weighted
+  selection-method: "weighted"
+  
+  # Allow multiple matches in same arena (for non-build modes)
+  allow-multiple-matches: true
+  
+  # Regeneration settings
+  regeneration:
+    enabled: true
+    method: "snapshot"  # snapshot, schematic, worldedit
+    async: true
+    delay-ticks: 20
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# KNOCKBACK PROFILES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+knockback:
+  vanilla:
+    horizontal: 0.4
+    vertical: 0.4
+    extra-horizontal: 0.5
+    extra-vertical: 0.1
+    friction: 2.0
+    
+  practice:
+    horizontal: 0.38
+    vertical: 0.36
+    extra-horizontal: 0.45
+    extra-vertical: 0.08
+    friction: 2.0
+    
+  soup:
+    horizontal: 0.35
+    vertical: 0.35
+    extra-horizontal: 0.4
+    extra-vertical: 0.05
+    friction: 2.0
+    
+  combo:
+    horizontal: 0.42
+    vertical: 0.38
+    extra-horizontal: 0.6
+    extra-vertical: 0.12
+    friction: 1.8
+    
+  nodebuff:
+    horizontal: 0.4
+    vertical: 0.385
+    extra-horizontal: 0.5
+    extra-vertical: 0.085
+    friction: 2.0
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DEATH EFFECTS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+death-effects:
+  enabled: true
+  
+  # Default effect for all players
+  default: "blood"
+  
+  # Available effects: explosion, lightning, blood, hearts, flames, 
+  #                    water, smoke, firework, critical, none
+  allow-player-choice: true
+  
+  # VIP effects (require permission)
+  vip-effects:
+    - "firework"
+    - "lightning"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# LEADERBOARDS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+leaderboards:
+  # GUI Leaderboard
+  gui:
+    enabled: true
+    refresh-interval: 60
+    top-players: 100
+    
+  # Hologram Leaderboard
+  hologram:
+    enabled: true
+    refresh-interval: 60
+    top-players: 10
+    
+    # Hologram locations (add as many as needed)
+    locations:
+      spawn:
+        world: "world"
+        x: 5.5
+        y: 105.0
+        z: 5.5
+        mode: "global"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# EVENTS CONFIGURATION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+events:
+  enabled: true
+  
+  # Auto-start events
+  auto-events:
+    enabled: true
+    interval-minutes: 120  # Every 2 hours
+    
+  # Event types and their settings
+  types:
+    lms:
+      enabled: true
+      min-players: 4
+      max-players: 50
+      
+    oitc:
+      enabled: true
+      min-players: 4
+      max-players: 30
+      win-score: 25
+      
+    sumo:
+      enabled: true
+      min-players: 4
+      max-players: 16
+      
+    brackets:
+      enabled: true
+      min-players: 8
+      max-players: 64
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CLAN SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+clans:
+  enabled: true
+  
+  # Tag settings
+  tag:
+    min-length: 2
+    max-length: 8
+    allow-colors: false
+    
+  # Name settings
+  name:
+    min-length: 3
+    max-length: 32
+    
+  # Member limits
+  max-members: 20
+  
+  # Clan wars
+  wars:
+    enabled: true
+    min-players-per-team: 3
+    max-players-per-team: 10
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ACHIEVEMENTS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+achievements:
+  enabled: true
+  
+  # Broadcast to server when unlocked
+  broadcast: true
+  
+  # Rewards
+  rewards:
+    coins-multiplier: 1.0
+    
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# LANGUAGE SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+language:
+  # Default language
+  default: "es_ES"
+  
+  # Auto-detect from client locale
+  auto-detect: true
+  
+  # Available languages
+  available:
+    - "es_ES"
+    - "en_US"
+    - "pt_BR"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PERFORMANCE SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+performance:
+  # Cache settings
+  cache:
+    player-stats-minutes: 5
+    leaderboard-seconds: 60
+    
+  # Database connection pool
+  database-pool-size: 10
+  
+  # Async operations
+  async:
+    save-player-data: true
+    load-player-data: true
+    arena-regeneration: true
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# MESSAGES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+messages:
+  prefix: "&6&lCharged &8» &7"
+  
+  no-permission: "&cNo tienes permiso para hacer esto."
+  player-not-found: "&cJugador no encontrado."
+  
+  reload-success: "&aConfiguración recargada correctamente."
+  reload-error: "&cError al recargar la configuración."

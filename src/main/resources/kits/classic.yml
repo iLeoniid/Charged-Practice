@@ -1,0 +1,55 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Classic Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Classic"
+description: "Classic 1.8 PvP"
+
+armor:
+  helmet:
+    material: DIAMOND_HELMET
+    protection: 2
+    unbreakable: true
+  chestplate:
+    material: DIAMOND_CHESTPLATE
+    protection: 2
+    unbreakable: true
+  leggings:
+    material: DIAMOND_LEGGINGS
+    protection: 2
+    unbreakable: true
+  boots:
+    material: DIAMOND_BOOTS
+    protection: 2
+    unbreakable: true
+
+inventory:
+  0:
+    material: DIAMOND_SWORD
+    name: "§fSword"
+    sharpness: 1
+    unbreakable: true
+  1:
+    material: FISHING_ROD
+    name: "§fRod"
+    unbreakable: true
+  2:
+    material: BOW
+    name: "§fBow"
+    power: 1
+    unbreakable: true
+  3-11:
+    material: ARROW
+    amount: 64
+  12-35:
+    material: COOKED_BEEF
+    amount: 64
+
+settings:
+  natural-regeneration: true
+  hunger-enabled: true
+  fall-damage: true
+  show-health: true
+  
+combat:
+  knockback-profile: "vanilla"

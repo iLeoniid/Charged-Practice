@@ -1,0 +1,723 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - Menu System Configuration
+# Ultra Advanced GUI System with Smart Features
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# GLOBAL MENU SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+global:
+  # Menu transitions
+  animations:
+    enabled: true
+    open-animation: "EXPAND"  # EXPAND, FADE, SLIDE
+    close-animation: "SHRINK"
+    transition-speed: 10  # ticks
+    
+  # Sound effects
+  sounds:
+    menu-open: "CHEST_OPEN:1.0:1.0"
+    menu-close: "CHEST_CLOSE:1.0:1.0"
+    click-success: "CLICK:1.0:1.2"
+    click-fail: "VILLAGER_NO:1.0:0.8"
+    page-turn: "ITEM_BOOK_PAGE_TURN:1.0:1.0"
+    
+  # Anti-spam
+  cooldown:
+    enabled: true
+    time: 500  # milliseconds
+    message: "&cPlease wait before clicking again!"
+    
+  # Auto-refresh (for live data)
+  auto-refresh:
+    enabled: true
+    interval: 20  # ticks
+    only-when-open: true
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# MAIN MENU (Hub/Lobby)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+menus:
+  main-menu:
+    title: "&8┃ &6&lCHARGED PRACTICE &8┃"
+    size: 54
+    update-interval: 20
+    
+    # Smart background with gradient
+    background:
+      enabled: true
+      pattern: "BORDER"  # BORDER, CHECKER, FULL, CUSTOM
+      material: "STAINED_GLASS_PANE:15"
+      border-material: "STAINED_GLASS_PANE:7"
+      
+    # Items with smart positioning
+    items:
+      # ═══════════════════════════════════════════════════════════
+      # COMBAT MODES
+      # ═══════════════════════════════════════════════════════════
+      
+      unranked-duels:
+        slot: 20
+        material: "IRON_SWORD"
+        amount: 1
+        glow: false
+        
+        display:
+          name: "&a&lUnranked Duels"
+          lore:
+            - ""
+            - "&7Practice without ELO risk"
+            - "&7Perfect for warming up!"
+            - ""
+            - "&f▸ &717 Available Kits"
+            - "&f▸ &7Instant Matchmaking"
+            - "&f▸ &7No Ranking Changes"
+            - ""
+            - "&a&l► &eClick to select kit!"
+            
+        actions:
+          left-click: "OPEN:unranked-menu"
+          right-click: "QUICK_QUEUE:nodebuff:unranked"
+          shift-left-click: "OPEN:kit-selector:unranked"
+          
+        effects:
+          hover-particle: "VILLAGER_HAPPY"
+          click-particle: "FIREWORKS_SPARK"
+          sound-hover: "ORB_PICKUP:0.5:1.5"
+          
+      ranked-duels:
+        slot: 22
+        material: "DIAMOND_SWORD"
+        amount: 1
+        glow: true
+        
+        display:
+          name: "&6&lRanked Duels"
+          lore:
+            - ""
+            - "&7Compete for glory and ELO!"
+            - ""
+            - "&6&l┃ YOUR STATS"
+            - "&f▸ &7Division: {player_division_colored}"
+            - "&f▸ &7ELO: &e{player_elo} &7(&f{elo_change}&7)"
+            - "&f▸ &7Rank: &6#{player_global_rank}"
+            - "&f▸ &7Win Rate: &a{player_winrate}%"
+            - ""
+            - "&e&lREQUIREMENT: &f{placement_matches_left} placement matches"
+            - ""
+            - "&6&l► &eClick to compete!"
+            
+        requirement:
+          type: "PLACEMENT_MATCHES"
+          value: 10
+          message: "&cYou need to complete {required} placement matches first!"
+          
+        actions:
+          left-click: "OPEN:ranked-menu"
+          right-click: "QUICK_QUEUE:nodebuff:ranked"
+          shift-click: "VIEW:elo-history"
+          
+      events:
+        slot: 24
+        material: "NETHER_STAR"
+        amount: 1
+        glow: true
+        
+        display:
+          name: "&d&lEvents &f⚡ &a{active_events} Active"
+          lore:
+            - ""
+            - "&7Join massive tournaments"
+            - "&7and special game modes!"
+            - ""
+            - "&d&l┃ ACTIVE NOW"
+            - "{event_list_active}"
+            - ""
+            - "&7&l┃ UPCOMING"
+            - "{event_list_upcoming}"
+            - ""
+            - "&d&l► &eClick to view events!"
+            
+        dynamic:
+          update: true
+          placeholders:
+            event_list_active: "QUERY:active_events:3"
+            event_list_upcoming: "QUERY:upcoming_events:2"
+            
+      # ═══════════════════════════════════════════════════════════
+      # INFORMATION & STATS
+      # ═══════════════════════════════════════════════════════════
+      
+      profile:
+        slot: 48
+        material: "SKULL_ITEM:3"
+        skull-owner: "{player_name}"
+        
+        display:
+          name: "&f&l{player_name}"
+          lore:
+            - ""
+            - "&7&l┃ STATISTICS"
+            - "&f▸ &7Level: &a{player_level} &8[&b{level_progress}%&8]"
+            - "&f▸ &7Matches: &f{player_total_matches}"
+            - "&f▸ &7W/L: &a{player_wins}&7/&c{player_losses}"
+            - "&f▸ &7Win Rate: &e{player_winrate}%"
+            - "&f▸ &7K/D: &6{player_kdr}"
+            - ""
+            - "&7&l┃ ACHIEVEMENTS"
+            - "&f▸ &7Unlocked: &d{player_achievements}&7/&f{total_achievements}"
+            - "&f▸ &7Points: &e{achievement_points}"
+            - ""
+            - "&f&l► &eClick for full profile!"
+            
+        actions:
+          left-click: "OPEN:profile-menu"
+          right-click: "OPEN:achievements"
+          shift-click: "OPEN:match-history"
+          
+      leaderboards:
+        slot: 30
+        material: "EMERALD"
+        glow: true
+        
+        display:
+          name: "&b&lLeaderboards"
+          lore:
+            - ""
+            - "&7View the best players!"
+            - ""
+            - "&b&l┃ TOP 3 GLOBAL"
+            - "&f▸ &6#1 &7{top_1_name} &8(&e{top_1_elo}&8)"
+            - "&f▸ &7#2 &7{top_2_name} &8(&e{top_2_elo}&8)"
+            - "&f▸ &c#3 &7{top_3_name} &8(&e{top_3_elo}&8)"
+            - ""
+            - "&7&l┃ YOUR POSITION"
+            - "&f▸ &7Global: &6#{player_global_rank}"
+            - "&f▸ &7Division: &e#{player_division_rank}"
+            - ""
+            - "&b&l► &eClick to view full leaderboard!"
+            
+        dynamic:
+          update: true
+          cache-time: 60  # seconds
+          
+      settings:
+        slot: 32
+        material: "REDSTONE_COMPARATOR"
+        
+        display:
+          name: "&e&lSettings & Preferences"
+          lore:
+            - ""
+            - "&7Customize your experience"
+            - ""
+            - "&e&l┃ CURRENT SETTINGS"
+            - "&f▸ &7Knockback: &f{kb_profile}"
+            - "&f▸ &7Death Effect: &f{death_effect}"
+            - "&f▸ &7Scoreboard: {scoreboard_state}"
+            - "&f▸ &7Chat: {chat_state}"
+            - "&f▸ &7Sounds: {sounds_state}"
+            - ""
+            - "&e&l► &eClick to configure!"
+            
+      # ═══════════════════════════════════════════════════════════
+      # SPECIAL FEATURES
+      # ═══════════════════════════════════════════════════════════
+      
+      pvp-lab:
+        slot: 50
+        material: "ENCHANTMENT_TABLE"
+        glow: true
+        
+        display:
+          name: "&5&lPVP Laboratory"
+          lore:
+            - ""
+            - "&7Practice and perfect your skills"
+            - ""
+            - "&5&l┃ FEATURES"
+            - "&f▸ &7Custom Knockback Testing"
+            - "&f▸ &7Bot Practice (Easy/Medium/Hard)"
+            - "&f▸ &7CPS Trainer & Analyzer"
+            - "&f▸ &7Combo Practice"
+            - "&f▸ &7Hit Detection Tester"
+            - "&f▸ &7Strafe Trainer"
+            - ""
+            - "&5&l► &eClick to enter!"
+            
+        actions:
+          left-click: "TELEPORT:pvp-lab"
+          right-click: "OPEN:lab-settings"
+          
+      clan-wars:
+        slot: 26
+        material: "BANNER"
+        banner-color: "RED"
+        
+        display:
+          name: "&4&lClan Wars"
+          lore:
+            - ""
+            - "&7Team battles and glory!"
+            - ""
+            - "&4&l┃ YOUR CLAN"
+            - "&f▸ &7Tag: &c{clan_tag}"
+            - "&f▸ &7Name: &f{clan_name}"
+            - "&f▸ &7Members: &e{clan_members}&7/&f{clan_max}"
+            - "&f▸ &7ELO: &6{clan_elo}"
+            - "&f▸ &7Rank: &b#{clan_rank}"
+            - ""
+            - "&4&l► &eClick to manage clan!"
+            
+        requirement:
+          type: "IN_CLAN"
+          message: "&cYou need to be in a clan! Use /clan create"
+          
+      cosmetics:
+        slot: 40
+        material: "CHEST"
+        
+        display:
+          name: "&c&lCosmetics & Effects"
+          lore:
+            - ""
+            - "&7Unlock awesome cosmetics!"
+            - ""
+            - "&c&l┃ YOUR COLLECTION"
+            - "&f▸ &7Death Effects: &a{owned_death_effects}&7/&f9"
+            - "&f▸ &7Victory Dances: &a{owned_dances}&7/&f5"
+            - "&f▸ &7Kill Messages: &a{owned_messages}&7/&f12"
+            - "&f▸ &7Projectile Trails: &a{owned_trails}&7/&f7"
+            - ""
+            - "&7&l┃ UNLOCKING"
+            - "&f▸ &7Coins: &e{player_coins}"
+            - "&f▸ &7Win matches to earn more!"
+            - ""
+            - "&c&l► &eClick to browse!"
+            
+      # ═══════════════════════════════════════════════════════════
+      # NAVIGATION
+      # ═══════════════════════════════════════════════════════════
+      
+      queue-status:
+        slot: 4
+        material: "WATCH"
+        
+        display:
+          name: "&a&lServer Status"
+          lore:
+            - ""
+            - "&a&l┃ PLAYERS"
+            - "&f▸ &7Online: &a{online_players}&7/&f{max_players}"
+            - "&f▸ &7In Queue: &e{queue_count}"
+            - "&f▸ &7In Matches: &6{match_count}"
+            - ""
+            - "&a&l┃ PERFORMANCE"
+            - "&f▸ &7TPS: &a{server_tps}"
+            - "&f▸ &7Uptime: &f{server_uptime}"
+            - ""
+            
+        dynamic:
+          update: true
+          interval: 10
+          
+      close:
+        slot: 53
+        material: "BARRIER"
+        
+        display:
+          name: "&c&lClose Menu"
+          lore:
+            - "&7Click to close"
+            
+        actions:
+          click: "CLOSE"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# UNRANKED MENU (Kit Selection)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  unranked-menu:
+    title: "&8┃ &a&lUNRANKED DUELS &8┃"
+    size: 54
+    
+    background:
+      pattern: "BORDER"
+      material: "STAINED_GLASS_PANE:5"
+      border-material: "STAINED_GLASS_PANE:13"
+      
+    # Automatic kit loading from kits folder
+    auto-populate:
+      enabled: true
+      source: "kits/*.yml"
+      start-slot: 10
+      skip-slots: [17, 18, 26, 27, 35, 36]  # Skip for borders
+      
+    # Kit items (auto-generated from kit configs)
+    kit-template:
+      display:
+        lore:
+          - ""
+          - "&7{kit_description}"
+          - ""
+          - "&f&l┃ KIT INFO"
+          - "&f▸ &7Type: &f{kit_type}"
+          - "&f▸ &7Difficulty: {kit_difficulty}"
+          - "&f▸ &7Popular: {kit_popularity}"
+          - ""
+          - "&a&l┃ IN QUEUE"
+          - "&f▸ &7Players: &e{queue_count_kit}"
+          - "&f▸ &7Avg Wait: &f{avg_wait_time}s"
+          - ""
+          - "&a&l► LEFT CLICK &7to queue"
+          - "&e&l► RIGHT CLICK &7for kit preview"
+          - "&d&l► SHIFT+CLICK &7for statistics"
+          
+      actions:
+        left-click: "QUEUE:unranked:{kit_id}"
+        right-click: "PREVIEW:kit:{kit_id}"
+        shift-click: "STATS:kit:{kit_id}"
+        
+    # Navigation
+    items:
+      previous-page:
+        slot: 45
+        material: "ARROW"
+        name: "&e&l← Previous Page"
+        action: "PAGE:previous"
+        
+      current-page:
+        slot: 49
+        material: "PAPER"
+        name: "&f&lPage {current_page}&7/&f{total_pages}"
+        
+      next-page:
+        slot: 53
+        material: "ARROW"
+        name: "&e&lNext Page →"
+        action: "PAGE:next"
+        
+      back:
+        slot: 48
+        material: "BARRIER"
+        name: "&c&l← Back to Main Menu"
+        action: "OPEN:main-menu"
+        
+      filters:
+        slot: 50
+        material: "HOPPER"
+        name: "&b&lFilter Kits"
+        lore:
+          - ""
+          - "&7Click to filter by:"
+          - "&f▸ &7Kit Type"
+          - "&f▸ &7Difficulty"
+          - "&f▸ &7Popularity"
+          - ""
+        action: "OPEN:filter-menu"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# SETTINGS MENU (Ultra Customizable)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  settings-menu:
+    title: "&8┃ &e&lSETTINGS &8┃"
+    size: 54
+    
+    items:
+      # ═══════════════════════════════════════════════════════════
+      # COMBAT SETTINGS
+      # ═══════════════════════════════════════════════════════════
+      
+      knockback-profile:
+        slot: 11
+        material: "PISTON_BASE"
+        
+        display:
+          name: "&a&lKnockback Profile"
+          lore:
+            - ""
+            - "&7Choose your preferred knockback"
+            - ""
+            - "&a&l┃ CURRENT"
+            - "&f▸ &7Profile: &f{kb_profile}"
+            - ""
+            - "&a&l┃ AVAILABLE PROFILES"
+            - " &8▸ &7Vanilla &8- &fDefault 1.8"
+            - " &8▸ &7Practice &8- &fOptimized"
+            - " &8▸ &7Soup &8- &fLow KB"
+            - " &8▸ &7Combo &8- &fHigh KB"
+            - " &8▸ &7NoDebuff &8- &fBalanced"
+            - ""
+            - "&e&l► Click to change!"
+            
+        actions:
+          click: "OPEN:knockback-selector"
+          
+      death-effect:
+        slot: 13
+        material: "FIREWORK"
+        
+        display:
+          name: "&c&lDeath Effect"
+          lore:
+            - ""
+            - "&7Choose your death animation"
+            - ""
+            - "&c&l┃ CURRENT"
+            - "&f▸ &7Effect: &f{death_effect}"
+            - ""
+            - "&c&l┃ UNLOCKED ({owned_effects}/9)"
+            - "{effect_list}"
+            - ""
+            - "&e&l► Click to change!"
+            - "&d&l► Shift+Click to preview!"
+            
+        actions:
+          left-click: "OPEN:death-effect-selector"
+          shift-click: "PREVIEW:death-effect:{current}"
+          
+      # ═══════════════════════════════════════════════════════════
+      # DISPLAY SETTINGS
+      # ═══════════════════════════════════════════════════════════
+      
+      scoreboard-toggle:
+        slot: 20
+        material: "SIGN"
+        
+        display:
+          name: "&b&lScoreboard"
+          lore:
+            - ""
+            - "&7Toggle scoreboard visibility"
+            - ""
+            - "&b&l┃ STATUS"
+            - "&f▸ &7Current: {scoreboard_state}"
+            - ""
+            - "&e&l► Click to toggle!"
+            
+        toggle:
+          states:
+            enabled:
+              material: "SIGN"
+              name: "&a&lScoreboard: &fEnabled"
+              action: "TOGGLE:scoreboard:off"
+            disabled:
+              material: "SIGN"
+              name: "&c&lScoreboard: &fDisabled"
+              action: "TOGGLE:scoreboard:on"
+              
+      visibility:
+        slot: 22
+        material: "ENDER_PEARL"
+        
+        display:
+          name: "&5&lPlayer Visibility"
+          lore:
+            - ""
+            - "&7Control who you see in lobby"
+            - ""
+            - "&5&l┃ OPTIONS"
+            - " &8▸ &aAll Players"
+            - " &8▸ &eFriends Only"
+            - " &8▸ &cNone (Hide All)"
+            - ""
+            - "&7Current: &f{visibility_mode}"
+            - ""
+            - "&e&l► Click to cycle!"
+            
+        cycle:
+          values: ["ALL", "FRIENDS", "NONE"]
+          current-key: "visibility_mode"
+          
+      # ═══════════════════════════════════════════════════════════
+      # AUDIO & PARTICLES
+      # ═══════════════════════════════════════════════════════════
+      
+      sounds:
+        slot: 29
+        material: "NOTE_BLOCK"
+        
+        display:
+          name: "&e&lSound Effects"
+          lore:
+            - ""
+            - "&7Toggle sound effects"
+            - ""
+            - "&e&l┃ CATEGORIES"
+            - "&f▸ &7Menu Sounds: {menu_sounds}"
+            - "&f▸ &7Combat Sounds: {combat_sounds}"
+            - "&f▸ &7Achievement Sounds: {achievement_sounds}"
+            - ""
+            - "&e&l► Click to configure!"
+            
+        actions:
+          click: "OPEN:sound-settings"
+          
+      particles:
+        slot: 31
+        material: "BLAZE_POWDER"
+        
+        display:
+          name: "&6&lParticle Effects"
+          lore:
+            - ""
+            - "&7Toggle particle effects"
+            - ""
+            - "&6&l┃ EFFECTS"
+            - "&f▸ &7Kill Effects: {kill_particles}"
+            - "&f▸ &7Victory Effects: {victory_particles}"
+            - "&f▸ &7Trail Effects: {trail_particles}"
+            - ""
+            - "&e&l► Click to configure!"
+            
+      # ═══════════════════════════════════════════════════════════
+      # CHAT & SOCIAL
+      # ═══════════════════════════════════════════════════════════
+      
+      chat-settings:
+        slot: 38
+        material: "BOOK_AND_QUILL"
+        
+        display:
+          name: "&f&lChat Settings"
+          lore:
+            - ""
+            - "&7Configure chat preferences"
+            - ""
+            - "&f&l┃ OPTIONS"
+            - "&f▸ &7Public Chat: {public_chat}"
+            - "&f▸ &7Private Messages: {private_messages}"
+            - "&f▸ &7Mentions: {mentions}"
+            - "&f▸ &7Friend Requests: {friend_requests}"
+            - ""
+            - "&e&l► Click to configure!"
+            
+      language:
+        slot: 40
+        material: "BANNER"
+        
+        display:
+          name: "&b&lLanguage"
+          lore:
+            - ""
+            - "&7Change your language"
+            - ""
+            - "&b&l┃ CURRENT"
+            - "&f▸ &7Language: &f{player_language}"
+            - ""
+            - "&b&l┃ AVAILABLE"
+            - " &8▸ &7Español (ES)"
+            - " &8▸ &7English (EN)"
+            - " &8▸ &7Português (PT-BR)"
+            - ""
+            - "&e&l► Click to change!"
+            
+      # ═══════════════════════════════════════════════════════════
+      # ADVANCED
+      # ═══════════════════════════════════════════════════════════
+      
+      performance:
+        slot: 47
+        material: "REDSTONE"
+        
+        display:
+          name: "&c&lPerformance Mode"
+          lore:
+            - ""
+            - "&7Optimize for better FPS"
+            - ""
+            - "&c&l┃ SETTINGS"
+            - "&f▸ &7Particles: {performance_particles}"
+            - "&f▸ &7Animations: {performance_animations}"
+            - "&f▸ &7View Distance: {performance_distance}"
+            - ""
+            - "&e&l► Click to toggle!"
+            
+      reset-settings:
+        slot: 51
+        material: "TNT"
+        
+        display:
+          name: "&4&lReset All Settings"
+          lore:
+            - ""
+            - "&c&lWARNING!"
+            - "&7This will reset all your"
+            - "&7settings to default"
+            - ""
+            - "&4&l► Click to reset!"
+            - "&7(Shift+Click to confirm)"
+            
+        confirmation:
+          required: true
+          message: "&eShift+Click again to confirm reset!"
+          timeout: 5  # seconds
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PROFILE MENU
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  profile-menu:
+    title: "&8┃ &f&lPROFILE &8┃ &7{player_name}"
+    size: 54
+    
+    items:
+      player-head:
+        slot: 4
+        material: "SKULL_ITEM:3"
+        skull-owner: "{player_name}"
+        
+        display:
+          name: "&f&l{player_name}"
+          lore:
+            - ""
+            - "&7&l┃ RANK"
+            - "&f▸ &7Division: {player_division_colored}"
+            - "&f▸ &7Global Rank: &6#{player_global_rank}"
+            - "&f▸ &7Division Rank: &e#{player_division_rank}"
+            - ""
+            - "&7&l┃ LEVEL"
+            - "&f▸ &7Current: &a{player_level}"
+            - "&f▸ &7Progress: &b{level_progress}%"
+            - "&f▸ &7Next Level: &7{exp_needed} XP"
+            - ""
+            
+      overall-stats:
+        slot: 20
+        material: "PAPER"
+        
+        display:
+          name: "&f&lOverall Statistics"
+          lore:
+            - ""
+            - "&f&l┃ MATCHES"
+            - "&f▸ &7Total: &f{total_matches}"
+            - "&f▸ &7Wins: &a{wins}"
+            - "&f▸ &7Losses: &c{losses}"
+            - "&f▸ &7Win Rate: &e{winrate}%"
+            - ""
+            - "&f&l┃ COMBAT"
+            - "&f▸ &7K/D Ratio: &6{kdr}"
+            - "&f▸ &7Total Kills: &a{total_kills}"
+            - "&f▸ &7Total Deaths: &c{total_deaths}"
+            - "&f▸ &7Longest Streak: &d{best_streak}"
+            - ""
+            
+      per-mode-stats:
+        slot: 22
+        material: "DIAMOND_SWORD"
+        
+        display:
+          name: "&6&lPer-Mode Statistics"
+          lore:
+            - ""
+            - "&7Click to view detailed"
+            - "&7statistics for each mode"
+            - ""
+            - "&e&l► Click to open!"
+            
+        actions:
+          click: "OPEN:mode-stats"

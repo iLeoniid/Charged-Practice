@@ -1,0 +1,108 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Charged - Events Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+events:
+  enabled: true
+  
+  automated:
+    # Hourly events
+    hourly:
+      enabled: true
+      interval-hours: 2
+      announce-before: 15
+      
+      modes:
+        - name: "Sumo Tournament"
+          mode: sumo
+          max-players: 32
+          reward:
+            coins: 500
+            xp: 1000
+            cosmetic: "vt_gold"
+        
+        - name: "NoDebuff Mayhem"
+          mode: nodebuff
+          max-players: 16
+          reward:
+            coins: 300
+            xp: 750
+        
+        - name: "BuildUHC Challenge"
+          mode: builduhc
+          max-players: 24
+          reward:
+            coins: 400
+            xp: 850
+    
+    # Daily event
+    daily:
+      enabled: true
+      time: "20:00"
+      announce-before: 60
+      mode: "tournament"
+      tournament:
+        type: DOUBLE_ELIMINATION
+        modes: [nodebuff, gapple, sumo, builduhc]
+        reward:
+          first:
+            coins: 2000
+            xp: 5000
+            tag: "§6[DAILY CHAMP]"
+            cosmetic: "pt_fire"
+          second:
+            coins: 1000
+            xp: 3000
+          third:
+            coins: 500
+            xp: 1500
+    
+    # Weekly event
+    weekly:
+      enabled: true
+      day: SATURDAY
+      time: "18:00"
+      mode: "clanwar"
+      clanwar:
+        min-clans: 4
+        max-clans: 16
+        players-per-clan: 5
+        reward:
+          clan-xp: 5000
+          coins-per-member: 1000
+          tag: "§4[WAR CHAMPIONS]"
+  
+  # Seasonal events
+  seasonal:
+    christmas:
+      enabled: true
+      start: "2024-12-20"
+      end: "2024-12-27"
+      arenas: [snowy_valley, christmas_village]
+      kits:
+        santa_helper:
+          name: "Santa's Helper"
+          items:
+            0: {material: DIAMOND_SWORD, name: "§cCandy Cane Sword"}
+            1: {material: SNOW_BALL, amount: 64}
+          armor:
+            helmet: {material: LEATHER_HELMET, color: RED}
+            chestplate: {material: LEATHER_CHESTPLATE, color: RED}
+      
+    halloween:
+      enabled: true
+      start: "2024-10-25"
+      end: "2024-11-01"
+      arenas: [haunted_mansion, spooky_forest]
+  
+  # Rotation
+  rotation:
+    enabled: true
+    days:
+      monday: [nodebuff, builduhc]
+      tuesday: [gapple, sumo]
+      wednesday: [boxing, soup]
+      thursday: [nodebuff, gapple]
+      friday: [tournament]
+      saturday: [clanwar, builduhc]
+      sunday: [all_modes]

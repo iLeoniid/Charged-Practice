@@ -1,0 +1,622 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED WEB SYSTEM - ULTIMATE CONFIGURATION
+# Version: 2.0.0 ULTRA
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+web:
+  enabled: true
+  domain: "https://practice.tudominio.com"
+  api_key: "your-super-secret-api-key-change-this"
+  auto_generate_pages: true
+  
+  # API Configuration
+  api:
+    enabled: true
+    port: 3000
+    rate_limit:
+      enabled: true
+      requests_per_minute: 60
+      burst: 10
+    
+    endpoints:
+      get_match: "/api/v2/match/{id}"
+      get_player: "/api/v2/player/{uuid}"
+      get_leaderboard: "/api/v2/leaderboard/{mode}"
+      get_staff: "/api/v2/staff"
+      get_stats: "/api/v2/stats/{uuid}"
+      post_match: "/api/v2/match"
+      websocket: "/ws/live"
+  
+  # Discord Integration
+  discord:
+    webhook:
+      enabled: true
+      url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE"
+      
+      # What to post
+      post_match_results: true
+      post_leaderboard_updates: true
+      post_division_changes: true
+      post_tournaments: true
+      post_achievements: true
+      
+      # Embed customization
+      embed:
+        color: "#6C5CE7"
+        thumbnail: true
+        footer_text: "Charged Practice • Advanced Statistics"
+        footer_icon: "https://i.imgur.com/yourlogo.png"
+        timestamp: true
+        
+      # Match result format
+      match_format:
+        title: "⚔️ {mode} Match • {winner} vs {loser}"
+        description: |
+          **Winner:** {winner} ({winner_elo} → {winner_new_elo}) **+{elo_change}**
+          **Loser:** {loser} ({loser_elo} → {loser_new_elo}) **{elo_change}**
+          
+          **Duration:** {duration}
+          **Combo:** {max_combo} hits
+          **Stats:** [View Full Stats]({match_url})
+        
+        fields:
+          - name: "📊 Statistics"
+            value: |
+              Hits: {winner_hits} - {loser_hits}
+              Accuracy: {winner_accuracy}% - {loser_accuracy}%
+              CPS: {winner_cps} - {loser_cps}
+            inline: true
+          
+          - name: "🎯 Performance"
+            value: |
+              Combo: {winner_combo} - {loser_combo}
+              Criticals: {winner_crits}% - {loser_crits}%
+              Ping: {winner_ping}ms - {loser_ping}ms
+            inline: true
+    
+    # Bot Integration (optional)
+    bot:
+      enabled: false
+      token: "YOUR_BOT_TOKEN"
+      guild_id: "YOUR_GUILD_ID"
+      sync_staff: true
+      sync_interval: 300  # seconds
+      
+      commands:
+        - name: "stats"
+          description: "View player statistics"
+        - name: "match"
+          description: "Get match details"
+        - name: "leaderboard"
+          description: "View leaderboards"
+  
+  # Page Configuration - ULTRA CUSTOMIZABLE
+  pages:
+    # Match Page
+    match:
+      enabled: true
+      title: "⚔️ {player1} vs {player2} • {mode} Match"
+      description: "Detailed match analysis with statistics, inventory, timeline and more"
+      url_format: "/duel/{match_id}"
+      
+      # SEO & Meta
+      meta:
+        og_image: "https://i.imgur.com/match-preview.png"
+        og_type: "article"
+        twitter_card: "summary_large_image"
+        keywords: "minecraft pvp, practice, duel, statistics, {mode}"
+      
+      # Sections to show
+      sections:
+        header:
+          enabled: true
+          show_avatars: true
+          show_elo_change: true
+          show_division: true
+          show_duration: true
+          show_arena: true
+          animated: true
+        
+        statistics:
+          enabled: true
+          show_hits: true
+          show_combo: true
+          show_cps: true
+          show_accuracy: true
+          show_criticals: true
+          show_potions: true
+          show_blocks: true
+          show_ping: true
+          comparison_bars: true
+          animated_numbers: true
+        
+        inventory:
+          enabled: true
+          show_hotbar: true
+          show_armor: true
+          show_ender_chest: false
+          item_tooltips: true
+          enchantment_display: true
+          durability_display: true
+          3d_model: false  # Experimental
+        
+        timeline:
+          enabled: true
+          show_hits: true
+          show_combos: true
+          show_potions: true
+          show_critical_moments: true
+          interactive: true
+          playback_control: true
+        
+        heatmap:
+          enabled: true
+          show_hit_distribution: true
+          show_movement_pattern: true
+          show_potion_usage: true
+          3d_visualization: false
+        
+        analysis:
+          enabled: true
+          show_combo_analysis: true
+          show_trading_pattern: true
+          show_positioning: true
+          show_pot_efficiency: true
+          ai_insights: true  # AI-generated insights
+        
+        replay:
+          enabled: true
+          download_button: true
+          web_viewer: true
+          sharing: true
+        
+        share:
+          enabled: true
+          twitter: true
+          discord: true
+          copy_link: true
+          qr_code: true
+          embed_code: true
+    
+    # Player Profile Page
+    player:
+      enabled: true
+      title: "{player}'s Profile • Charged Practice"
+      description: "Detailed player statistics, match history, and achievements"
+      url_format: "/player/{uuid}"
+      
+      sections:
+        header:
+          enabled: true
+          show_avatar: true
+          show_banner: true  # Custom banner support
+          show_level: true
+          show_division: true
+          show_rank: true
+          show_badges: true
+        
+        stats_overview:
+          enabled: true
+          show_elo: true
+          show_wlr: true
+          show_kdr: true
+          show_streak: true
+          show_playtime: true
+          graphs: true
+        
+        per_mode_stats:
+          enabled: true
+          modes: [nodebuff, gapple, sumo, builduhc, combo, debuff]
+          detailed: true
+        
+        match_history:
+          enabled: true
+          matches_per_page: 20
+          show_recent: 50
+          filter_by_mode: true
+          filter_by_result: true
+        
+        achievements:
+          enabled: true
+          show_progress: true
+          show_locked: true
+          rarity_colors: true
+        
+        clan:
+          enabled: true
+          show_clan_info: true
+          show_clan_members: true
+          show_clan_wars: true
+        
+        graphs:
+          enabled: true
+          elo_over_time: true
+          winrate_over_time: true
+          activity_calendar: true
+          performance_radar: true
+    
+    # Leaderboards Page
+    leaderboards:
+      enabled: true
+      title: "🏆 Leaderboards • Charged Practice"
+      description: "Top players, divisions, and statistics"
+      url_format: "/leaderboards"
+      
+      refresh_interval: 60  # seconds
+      show_top: 100
+      
+      boards:
+        global:
+          enabled: true
+          sort_by: "elo"
+          show_divisions: true
+          show_badges: true
+          
+        per_mode:
+          enabled: true
+          modes: [nodebuff, gapple, sumo, builduhc]
+        
+        win_streak:
+          enabled: true
+          current_and_best: true
+        
+        clan_leaderboard:
+          enabled: true
+          sort_by: "clan_elo"
+        
+        seasonal:
+          enabled: true
+          show_rewards: true
+      
+      filters:
+        - by_division
+        - by_mode
+        - by_region
+        - by_time_period
+    
+    # Staff Page
+    staff:
+      enabled: true
+      title: "👥 Staff Team • Charged Practice"
+      url_format: "/staff"
+      
+      sync_with_discord: true
+      sync_interval: 300
+      
+      display:
+        show_avatars: true
+        show_status: true  # online/offline
+        show_playtime: true
+        show_join_date: true
+        grouped_by_role: true
+        contact_buttons: true
+      
+      roles:
+        owner:
+          display_name: "Owner"
+          color: "#FF5555"
+          priority: 100
+          badge: "👑"
+          permissions: ["all"]
+        
+        admin:
+          display_name: "Administrator"
+          color: "#FFAA00"
+          priority: 90
+          badge: "⭐"
+          permissions: ["manage_server", "manage_matches", "ban"]
+        
+        mod:
+          display_name: "Moderator"
+          color: "#55FF55"
+          priority: 80
+          badge: "🛡️"
+          permissions: ["kick", "mute", "view_reports"]
+        
+        helper:
+          display_name: "Helper"
+          color: "#5555FF"
+          priority: 70
+          badge: "💙"
+          permissions: ["answer_tickets"]
+        
+        builder:
+          display_name: "Builder"
+          color: "#FF55FF"
+          priority: 60
+          badge: "🔨"
+          permissions: ["build_arenas"]
+    
+    # Tournament Page
+    tournaments:
+      enabled: true
+      title: "🏆 Tournaments • Charged Practice"
+      url_format: "/tournaments"
+      
+      show_upcoming: true
+      show_ongoing: true
+      show_past: true
+      bracket_visualization: true
+      live_updates: true
+    
+    # Global 3D Map (Player Locations)
+    global_map:
+      enabled: false  # Experimental
+      url_format: "/map"
+      update_interval: 5  # seconds
+      show_all_players: false
+      show_matches_only: true
+  
+  # Design System - ULTRA CUSTOMIZABLE
+  design:
+    # Theme
+    theme:
+      mode: "dark"  # dark, light, auto
+      custom_themes:
+        enabled: true
+        default: "midnight"
+        
+        themes:
+          midnight:
+            name: "Midnight Purple"
+            primary: "#6C5CE7"
+            secondary: "#00CEC9"
+            accent: "#FD79A8"
+            background: "#0F0F1E"
+            background_secondary: "#070710"
+            card_background: "rgba(25, 25, 40, 0.8)"
+            text_primary: "#FFFFFF"
+            text_secondary: "#B0B0D0"
+            success: "#00FF88"
+            warning: "#FFAA00"
+            error: "#FF5555"
+            info: "#5555FF"
+          
+          ocean:
+            name: "Ocean Blue"
+            primary: "#0984E3"
+            secondary: "#00B894"
+            accent: "#FDCB6E"
+            background: "#0F1419"
+            background_secondary: "#070A0E"
+            card_background: "rgba(15, 20, 30, 0.8)"
+            text_primary: "#FFFFFF"
+            text_secondary: "#A0B0C0"
+          
+          sunset:
+            name: "Sunset Orange"
+            primary: "#FD79A8"
+            secondary: "#FDCB6E"
+            accent: "#6C5CE7"
+            background: "#1E0F1A"
+            background_secondary: "#0E0710"
+            card_background: "rgba(40, 20, 30, 0.8)"
+            text_primary: "#FFFFFF"
+            text_secondary: "#D0B0C0"
+          
+          forest:
+            name: "Forest Green"
+            primary: "#00B894"
+            secondary: "#00CEC9"
+            accent: "#55EFC4"
+            background: "#0F1E0F"
+            background_secondary: "#070E07"
+            card_background: "rgba(20, 40, 20, 0.8)"
+            text_primary: "#FFFFFF"
+            text_secondary: "#B0D0B0"
+    
+    # Typography
+    typography:
+      font_family: "'Inter', 'Segoe UI', system-ui, sans-serif"
+      heading_font: "'Poppins', 'Inter', sans-serif"
+      mono_font: "'JetBrains Mono', 'Fira Code', monospace"
+      
+      sizes:
+        xs: "12px"
+        sm: "14px"
+        base: "16px"
+        lg: "18px"
+        xl: "20px"
+        "2xl": "24px"
+        "3xl": "30px"
+        "4xl": "36px"
+        "5xl": "48px"
+    
+    # Effects
+    effects:
+      blur:
+        enabled: true
+        amount: "20px"
+        webkit: true
+      
+      shadows:
+        enabled: true
+        card: "0 8px 32px rgba(0, 0, 0, 0.3)"
+        card_hover: "0 12px 40px rgba(108, 92, 231, 0.4)"
+        glow: "0 0 20px rgba(108, 92, 231, 0.5)"
+      
+      gradients:
+        animated_background:
+          enabled: true
+          colors: ["#6C5CE7", "#00CEC9", "#FD79A8", "#FDCB6E"]
+          animation_duration: "15s"
+          opacity: 0.1
+        
+        text_gradient:
+          enabled: true
+          colors: ["#6C5CE7", "#00CEC9"]
+      
+      animations:
+        enabled: true
+        card_hover: true
+        number_count_up: true
+        fade_in: true
+        slide_in: true
+        pulse: true
+        particles: true
+      
+      glass_morphism:
+        enabled: true
+        blur: "16px"
+        opacity: 0.8
+        border: "1px solid rgba(255, 255, 255, 0.1)"
+    
+    # Layout
+    layout:
+      max_width: "1400px"
+      padding: "20px"
+      gap: "20px"
+      border_radius: "16px"
+      
+      navigation:
+        position: "fixed"  # fixed, sticky, static
+        blur: true
+        transparent: true
+        height: "70px"
+      
+      grid:
+        columns: 12
+        gap: "20px"
+    
+    # Components
+    components:
+      cards:
+        style: "glass"  # glass, solid, outline, gradient
+        hover_lift: true
+        border: true
+        shadow: true
+      
+      buttons:
+        style: "gradient"  # solid, gradient, outline, ghost
+        rounded: true
+        shadow: true
+        hover_effect: "scale"  # scale, glow, lift
+      
+      badges:
+        style: "gradient"  # solid, gradient, outline
+        rounded: true
+        glow: true
+      
+      tooltips:
+        enabled: true
+        position: "auto"  # auto, top, bottom, left, right
+        delay: 300  # ms
+        animated: true
+      
+      charts:
+        library: "chartjs"  # chartjs, apexcharts, d3
+        theme: "dark"
+        animated: true
+        interactive: true
+        responsive: true
+  
+  # Data Collection - COMPREHENSIVE
+  data_collection:
+    # Basic tracking
+    inventory_snapshot: true
+    potion_usage: true
+    cps_tracking: true
+    hit_accuracy: true
+    ping_recording: true
+    
+    # Advanced tracking
+    movement_patterns: true
+    mouse_sensitivity: false  # Requires client mod
+    fov_tracking: false
+    
+    # Combat analysis
+    combo_detection: true
+    trading_analysis: true
+    positioning_analysis: true
+    pot_management: true
+    critical_timing: true
+    sprint_reset_detection: true
+    
+    # Performance metrics
+    fps_tracking: false  # Requires client mod
+    render_distance: false
+    chunk_loading: false
+    
+    # AI Analysis
+    ai_insights:
+      enabled: true
+      pattern_recognition: true
+      skill_level_detection: true
+      improvement_suggestions: true
+      anti_cheat_hints: false  # Can detect suspicious patterns
+  
+  # Export & API
+  export:
+    formats:
+      json: true
+      csv: true
+      pdf: true
+      xml: false
+    
+    downloadable: true
+    batch_export: true
+    
+  # Privacy & Security
+  security:
+    require_auth: false
+    api_key_required: true
+    rate_limiting: true
+    
+    privacy:
+      hide_ips: true
+      anonymize_chat: false
+      allow_player_hide: true  # Players can hide their profile
+      gdpr_compliant: true
+  
+  # Performance
+  performance:
+    cache:
+      enabled: true
+      ttl: 300  # seconds
+      provider: "redis"  # redis, memcached, file
+    
+    cdn:
+      enabled: false
+      provider: "cloudflare"
+      zones: []
+    
+    compression:
+      enabled: true
+      algorithm: "gzip"  # gzip, brotli
+    
+    lazy_loading:
+      enabled: true
+      images: true
+      components: true
+  
+  # Notifications
+  notifications:
+    in_game:
+      enabled: true
+      send_match_url: true
+      send_on_achievement: true
+      send_on_division_change: true
+    
+    email:
+      enabled: false
+      provider: "sendgrid"
+      templates:
+        match_summary: true
+        weekly_report: true
+        
+# Webhooks para eventos específicos
+webhooks:
+  match_end:
+    url: "https://yoursite.com/webhook/match"
+    headers:
+      Authorization: "Bearer YOUR_TOKEN"
+    retry: 3
+    timeout: 5000
+  
+  achievement_unlock:
+    url: "https://yoursite.com/webhook/achievement"
+    enabled: true
+  
+  division_change:
+    url: "https://yoursite.com/webhook/division"
+    enabled: true

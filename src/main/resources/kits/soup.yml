@@ -1,0 +1,38 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Soup Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Soup"
+description: "Mushroom soup healing"
+
+armor:
+  helmet:
+    material: IRON_HELMET
+    unbreakable: true
+  chestplate:
+    material: IRON_CHESTPLATE
+    unbreakable: true
+  leggings:
+    material: IRON_LEGGINGS
+    unbreakable: true
+  boots:
+    material: IRON_BOOTS
+    unbreakable: true
+
+inventory:
+  0:
+    material: DIAMOND_SWORD
+    name: "§fSword"
+    unbreakable: true
+  1-35:
+    material: MUSHROOM_SOUP
+    name: "§6Soup"
+
+settings:
+  natural-regeneration: false
+  hunger-enabled: false
+  fall-damage: true
+  soup-healing: 7.0
+  
+combat:
+  knockback-profile: "soup"

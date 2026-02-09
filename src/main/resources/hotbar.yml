@@ -1,0 +1,163 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - Hotbar Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# HOTBAR CONFIGURATIONS
+# Different hotbars for different player states
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+hotbars:
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ LOBBY HOTBAR                                                    │
+  # └─────────────────────────────────────────────────────────────────┘
+  lobby:
+    enabled: true
+    
+    slots:
+      0:
+        item: "DIAMOND_SWORD"
+        name: "&a&lDuelos"
+        action: "OPEN_DUEL_MENU"
+        glow: true
+        
+      1:
+        item: "COMPASS"
+        name: "&6&lCola"
+        action: "OPEN_QUEUE_MENU"
+        glow: false
+        
+      4:
+        item: "NETHER_STAR"
+        name: "&d&lAmigos"
+        action: "OPEN_FRIENDS"
+        glow: false
+        
+      7:
+        item: "PAPER"
+        name: "&7&lStats"
+        action: "VIEW_STATS"
+        glow: false
+        
+      8:
+        item: "BED"
+        name: "&c&lSalir"
+        action: "DISCONNECT"
+        glow: false
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ MATCH HOTBAR                                                    │
+  # └─────────────────────────────────────────────────────────────────┘
+  match:
+    enabled: true
+    
+    slots:
+      0:
+        item: "DIAMOND_SWORD"
+        name: "&aEspada"
+        action: "NONE"
+        glow: false
+        
+      1:
+        item: "ENDER_PEARL"
+        name: "&5Perlas"
+        action: "NONE"
+        glow: false
+        
+      2:
+        item: "GOLDEN_APPLE"
+        name: "&6Gapples"
+        action: "NONE"
+        glow: false
+        
+      7:
+        item: "BED"
+        name: "&cRendirse"
+        action: "SURRENDER"
+        glow: false
+        
+      8:
+        item: "COMPASS"
+        name: "&7Espectadores"
+        action: "SPECTATOR_LIST"
+        glow: false
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ PVP LAB HOTBAR                                                  │
+  # └─────────────────────────────────────────────────────────────────┘
+  lab:
+    enabled: true
+    
+    slots:
+      0:
+        item: "STICK"
+        name: "&aAjustar KB"
+        action: "OPEN_KB_SETTINGS"
+        glow: false
+        
+      1:
+        item: "ANVIL"
+        name: "&eBots"
+        action: "SPAWN_BOT"
+        glow: false
+        
+      4:
+        item: "CLOCK"
+        name: "&6Slow Motion"
+        action: "TOGGLE_SLOWMO"
+        glow: false
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ SPECTATOR HOTBAR                                                │
+  # └─────────────────────────────────────────────────────────────────┘
+  spectator:
+    enabled: true
+    
+    slots:
+      0:
+        item: "COMPASS"
+        name: "&eTeleport a Jugador"
+        action: "TELEPORT_PLAYER"
+        glow: false
+        
+      4:
+        item: "WATCH"
+        name: "&6Info del Match"
+        action: "MATCH_INFO"
+        glow: false
+        
+      8:
+        item: "BED"
+        name: "&cSalir"
+        action: "LEAVE_SPECTATE"
+        glow: false
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# HOTBAR ACTIONS
+# Available actions that can be assigned to items
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+actions:
+  # Menu actions
+  OPEN_DUEL_MENU: true
+  OPEN_QUEUE_MENU: true
+  OPEN_FRIENDS: true
+  VIEW_STATS: true
+  
+  # Match actions
+  SURRENDER: true
+  SPECTATOR_LIST: true
+  
+  # Lab actions
+  OPEN_KB_SETTINGS: true
+  SPAWN_BOT: true
+  TOGGLE_SLOWMO: true
+  
+  # Spectator actions
+  TELEPORT_PLAYER: true
+  MATCH_INFO: true
+  LEAVE_SPECTATE: true
+  
+  # System actions
+  DISCONNECT: true
+  NONE: true

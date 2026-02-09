@@ -1,0 +1,111 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - Scoreboard Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# SCOREBOARD DEFINITIONS
+# Different scoreboards for different states
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+scoreboards:
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ LOBBY SCOREBOARD                                                │
+  # └─────────────────────────────────────────────────────────────────┘
+  lobby:
+    title: "&6&lCharged Practice"
+    update-interval: 20
+    
+    lines:
+      - "&7{date}"
+      - ""
+      - "&fNivel: &a{level}"
+      - "&fELO: &e{elo}"
+      - "&fDivisión: {division}"
+      - "&fVictorias: &a{wins}"
+      - "&fKDR: &c{kdr}"
+      - ""
+      - "&fOnline: &a{online}"
+      - "&fEn cola: &e{in_queue}"
+      - ""
+      - "&eplay.chargedpvp.net"
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ QUEUE SCOREBOARD                                                │
+  # └─────────────────────────────────────────────────────────────────┘
+  queue:
+    title: "&e&lBUSCANDO..."
+    update-interval: 10
+    
+    lines:
+      - "&7{date}"
+      - ""
+      - "&fModo: &6{mode}"
+      - "&fTipo: &e{type}"
+      - ""
+      - "&fBuscando: &a{queue_time}s"
+      - "&fRango ELO: &e{elo_range}"
+      - ""
+      - "&fEn cola: &a{players_in_queue}"
+      - ""
+      - "&7Click derecho en salir"
+      - "&7para cancelar"
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ MATCH SCOREBOARD                                                │
+  # └─────────────────────────────────────────────────────────────────┘
+  match:
+    title: "&6{player_name} &8vs &c{opponent_name}"
+    update-interval: 5
+    
+    lines:
+      - "&7{mode} &8• &7{arena}"
+      - ""
+      - "&fKills: &a{player_kills} &8- &c{opponent_kills}"
+      - "&fCombo: &e{combo}"
+      - "&fCPS: &b{cps}"
+      - "&fPing: &a{ping}ms"
+      - ""
+      - "&fTiempo: &e{time}"
+      - "&fELO: &a{player_elo} &8(&e{elo_change}&8)"
+      - ""
+      - "&6chargedpvp.net"
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ SPECTATOR SCOREBOARD                                            │
+  # └─────────────────────────────────────────────────────────────────┘
+  spectator:
+    title: "&7&lSPECTATING"
+    update-interval: 10
+    
+    lines:
+      - "&7{mode} &8• &7{arena}"
+      - ""
+      - "&f{player1_name}:"
+      - "&7Kills: &a{player1_kills}"
+      - "&7Combo: &e{player1_combo}"
+      - "&7CPS: &b{player1_cps}"
+      - ""
+      - "&f{player2_name}:"
+      - "&7Kills: &a{player2_kills}"
+      - "&7Combo: &e{player2_combo}"
+      - "&7CPS: &b{player2_cps}"
+      - ""
+      - "&7Delay: &e{delay}s"
+      - "&6chargedpvp.net"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# GLOBAL SETTINGS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+settings:
+  # Enable scoreboard system
+  enabled: true
+  
+  # Anti-flicker (prevent scoreboard flickering)
+  anti-flicker: true
+  
+  # Allow players to toggle scoreboard
+  player-toggleable: true
+  
+  # Default state for new players
+  default-enabled: true

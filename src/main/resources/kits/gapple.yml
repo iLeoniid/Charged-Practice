@@ -1,0 +1,34 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Gapple Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Gapple"
+description: "Golden apples only, no potions"
+
+armor:
+  helmet:
+    material: DIAMOND_HELMET
+    unbreakable: true
+  chestplate:
+    material: DIAMOND_CHESTPLATE
+    unbreakable: true
+  leggings:
+    material: DIAMOND_LEGGINGS
+    unbreakable: true
+  boots:
+    material: DIAMOND_BOOTS
+    unbreakable: true
+
+inventory:
+  0:
+    material: DIAMOND_SWORD
+    name: "§fSword"
+    unbreakable: true
+  1-35:
+    material: GOLDEN_APPLE
+    amount: 64
+
+settings:
+  natural-regeneration: false
+  hunger-enabled: true
+  fall-damage: true

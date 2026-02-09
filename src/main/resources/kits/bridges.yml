@@ -1,0 +1,61 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Bridges Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Bridges"
+description: "Build bridges and score goals"
+
+armor:
+  helmet:
+    material: LEATHER_HELMET
+    color: RED
+    unbreakable: true
+  chestplate:
+    material: LEATHER_CHESTPLATE
+    color: RED
+    unbreakable: true
+  leggings:
+    material: LEATHER_LEGGINGS
+    color: RED
+    unbreakable: true
+  boots:
+    material: LEATHER_BOOTS
+    color: RED
+    unbreakable: true
+
+inventory:
+  0:
+    material: IRON_SWORD
+    name: "§fSword"
+    unbreakable: true
+  1:
+    material: BOW
+    name: "§fBow"
+    unbreakable: true
+  2:
+    material: ARROW
+    amount: 16
+  3:
+    material: WOOD_PICKAXE
+    name: "§fPickaxe"
+    unbreakable: true
+  4:
+    material: WOOD_AXE
+    name: "§fAxe"
+    unbreakable: true
+  5-8:
+    material: SANDSTONE
+    amount: 64
+
+settings:
+  natural-regeneration: true
+  hunger-enabled: false
+  build: true
+  build-limit: 256
+  fall-damage: true
+  void-damage: true
+  
+gamemode:
+  type: "capture_goal"
+  goals: 3
+  cage-duration: 15

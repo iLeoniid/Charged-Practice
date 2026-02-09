@@ -1,0 +1,23 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Sumo Kit Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+name: "Sumo"
+description: "Knockback stick only"
+
+armor: {}
+
+inventory:
+  0:
+    material: STICK
+    name: "§eKnockback Stick"
+    knockback: 2
+
+settings:
+  natural-regeneration: true
+  hunger-enabled: false
+  fall-damage: false
+  void-damage: true
+  
+combat:
+  knockback-multiplier: 2.5

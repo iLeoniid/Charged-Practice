@@ -1,0 +1,44 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Charged - Tab List (Match)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+header: |
+  §8« §c§lEN DUELO §8»
+  §7━━━━━━━━━━━━━━━━━━━━
+
+footer: |
+  §7━━━━━━━━━━━━━━━━━━━━
+  §7Tiempo: §f{time_remaining}
+
+format:
+  # Left column (You)
+  left:
+    1: "§8» §f{player_name}"
+    2: "§7ELO: §a{player_elo}"
+    3: "§7División: {player_division}"
+    4: "§7Combo: §c{player_combo}"
+    5: "§7CPS: §b{player_cps}"
+  
+  # Right column (Opponent)
+  right:
+    1: "§8» §f{opponent_name}"
+    2: "§7ELO: §c{opponent_elo}"
+    3: "§7División: {opponent_division}"
+    4: "§7Ping: {opponent_ping}ms"
+    5: "§7CPS: §b{opponent_cps}"
+  
+  # Center info
+  center:
+    1: "§8§l━━ VS ━━"
+    2: "§7Modo: §6{mode}"
+    3: "§7Arena: §a{arena}"
+    4: "§7Tiempo: §e{time}"
+  
+  # Spectators
+  spectators:
+    enabled: true
+    header: "§8» §7Espectadores:"
+    format: "§7- {spectator_name}"
+    max-shown: 5
+
+update-interval: 20

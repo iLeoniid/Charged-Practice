@@ -1,0 +1,273 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHARGED - Arenas Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ARENA DEFINITIONS
+# Each arena has coordinates, bounds, and specific settings
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+arenas:
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ NODEBUFF ARENA                                                  │
+  # └─────────────────────────────────────────────────────────────────┘
+  temple:
+    name: "Temple"
+    display-name: "&6Templo Antiguo"
+    type: "NODEBUFF"
+    enabled: true
+    
+    world: "world"
+    
+    spawn1:
+      x: 100.5
+      y: 64.0
+      z: 200.5
+      yaw: 90.0
+      pitch: 0.0
+      
+    spawn2:
+      x: 300.5
+      y: 64.0
+      z: 200.5
+      yaw: -90.0
+      pitch: 0.0
+      
+    bounds:
+      min:
+        x: 100
+        y: 60
+        z: 190
+      max:
+        x: 310
+        y: 100
+        z: 210
+        
+    settings:
+      build: false
+      max-players: 2
+      void-level: 50
+      
+    metadata:
+      rating: 4.5
+      votes: 128
+      tags:
+        - "outdoor"
+        - "temple"
+        - "symmetrical"
+      creator: "Admin"
+      created: 1672531200
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ BUILD UHC ARENA                                                 │
+  # └─────────────────────────────────────────────────────────────────┘
+  construction_site:
+    name: "Construction Site"
+    display-name: "&eSitio de Construcción"
+    type: "BUILD_UHC"
+    enabled: true
+    
+    world: "world_builduhc"
+    
+    spawn1:
+      x: 0.5
+      y: 70.0
+      z: 0.5
+      yaw: 0.0
+      pitch: 0.0
+      
+    spawn2:
+      x: 100.5
+      y: 70.0
+      z: 100.5
+      yaw: 180.0
+      pitch: 0.0
+      
+    bounds:
+      min:
+        x: -50
+        y: 60
+        z: -50
+      max:
+        x: 150
+        y: 100
+        z: 150
+        
+    settings:
+      build: true
+      max-players: 2
+      void-level: 50
+      
+    build-limits:
+      max-blocks: 500
+      allowed-blocks:
+        - "COBBLESTONE"
+        - "WOOD_PLANKS"
+        - "GLASS"
+        - "CHEST"
+      blacklisted-blocks:
+        - "TNT"
+        - "LAVA"
+        - "WATER"
+      time-limit: 180
+      
+    metadata:
+      tags:
+        - "large"
+        - "construction"
+        - "creative"
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ TOURNAMENT ARENA                                                │
+  # └─────────────────────────────────────────────────────────────────┘
+  stadium:
+    name: "Stadium"
+    display-name: "&c&lEstadio"
+    type: "TOURNAMENT"
+    enabled: true
+    
+    world: "world_tournament"
+    
+    spawns:
+      - x: 0.5
+        y: 70.0
+        z: 0.5
+        yaw: 0.0
+        pitch: 0.0
+      - x: 50.5
+        y: 70.0
+        z: 0.5
+        yaw: 90.0
+        pitch: 0.0
+      - x: 0.5
+        y: 70.0
+        z: 50.5
+        yaw: 180.0
+        pitch: 0.0
+      - x: 50.5
+        y: 70.0
+        z: 50.5
+        yaw: -90.0
+        pitch: 0.0
+        
+    spectator-spawn:
+      x: 25.5
+      y: 80.0
+      z: 25.5
+      yaw: 0.0
+      pitch: 45.0
+      
+    bounds:
+      min:
+        x: -10
+        y: 60
+        z: -10
+      max:
+        x: 60
+        y: 100
+        z: 60
+        
+    settings:
+      build: false
+      max-players: 4
+      void-level: 50
+      
+    metadata:
+      tags:
+        - "stadium"
+        - "tournament"
+        - "center-camera"
+
+  # ┌─────────────────────────────────────────────────────────────────┐
+  # │ SUMO ARENA                                                      │
+  # └─────────────────────────────────────────────────────────────────┘
+  frozen_lake:
+    name: "Frozen Lake"
+    display-name: "&bLago Congelado"
+    type: "SUMO"
+    enabled: true
+    
+    world: "world_winter"
+    
+    spawn1:
+      x: 0.5
+      y: 60.0
+      z: 0.5
+      yaw: 45.0
+      pitch: 0.0
+      
+    spawn2:
+      x: 0.5
+      y: 60.0
+      z: 30.5
+      yaw: -45.0
+      pitch: 0.0
+      
+    bounds:
+      min:
+        x: -15
+        y: 55
+        z: -15
+      max:
+        x: 15
+        y: 70
+        z: 45
+        
+    settings:
+      build: false
+      max-players: 2
+      void-level: 50
+      
+    theme: "WINTER"
+    
+    particles:
+      enabled: true
+      type: "SNOWFLAKE"
+      density: 10
+      
+    metadata:
+      tags:
+        - "winter"
+        - "ice"
+        - "thematic"
+        - "seasonal"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ARENA ROTATION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+rotation:
+  # Enable weighted rotation (arenas with higher weight are chosen more often)
+  enabled: true
+  
+  # Weights per arena (higher = more frequent)
+  weights:
+    temple: 10
+    construction_site: 5
+    stadium: 3
+    frozen_lake: 8
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ARENA REGENERATION
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+regeneration:
+  # Method: snapshot, schematic, worldedit
+  method: "snapshot"
+  
+  # Async regeneration (recommended)
+  async: true
+  
+  # Delay before regeneration (ticks)
+  delay: 20
+  
+  # Snapshot settings
+  snapshot:
+    # Save snapshots to disk
+    save-to-disk: true
+    
+    # Compress snapshots (GZIP)
+    compress: true
+    
+    # Auto-capture on arena creation
+    auto-capture: true
