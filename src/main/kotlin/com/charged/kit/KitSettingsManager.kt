@@ -1,6 +1,7 @@
 package com.charged.kit
 
 import com.charged.Charged
+import com.charged.util.PluginAccess
 import org.bukkit.entity.Player
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
@@ -64,7 +65,7 @@ class KitSettingsManager(private val plugin: Charged) {
     }
     
     fun parseSettings(kitName: String): KitSettings {
-        val config = plugin.plugin.configManager
+        val config = PluginAccess.plugin().configManager
         val path = "kits.$kitName.settings"
         
         return KitSettings(
