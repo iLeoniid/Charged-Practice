@@ -1,13 +1,13 @@
 package com.charged.command
 
-import com.charged.Charged
+import com.charged.util.PluginAccess
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class ClanCommand(private val plugin: Charged) : CommandExecutor {
-    
+class ClanCommand : CommandExecutor {
+
     override fun onCommand(
         sender: CommandSender,
         command: Command,
@@ -18,82 +18,70 @@ class ClanCommand(private val plugin: Charged) : CommandExecutor {
             sender.sendMessage("§cSolo jugadores pueden usar este comando.")
             return true
         }
-        
+
         if (args.isEmpty()) {
-            sendHelp(sender)
+            sendHelp(sender as Player)
             return true
         }
-        
+
+        val player = sender as Player
+        val chargedPlugin = PluginAccess.plugin()
+
         when (args[0].lowercase()) {
             "create" -> {
                 if (args.size < 3) {
-                    sender.sendMessage("§cUso: /clan create <tag> <nombre>")
+                    player.sendMessage("§cUso: /clan create <tag> <nombre>")
                     return true
                 }
-                
+
                 val tag = args[1]
                 val name = args.drop(2).joinToString(" ")
-                
-                plugin.plugin.clanManager.createClan(sender, tag, name)
+
+                // chargedPlugin.clanManager.createClan(player, tag, name)
+                player.sendMessage("§aCreando clan $tag ($name)...")
             }
-            
+
             "disband" -> {
-                plugin.plugin.clanManager.disbandClan(sender)
+                // chargedPlugin.clanManager.disbandClan(player)
+                player.sendMessage("§cDisolviendo clan...")
             }
-            
+
             "invite" -> {
                 if (args.size < 2) {
-                    sender.sendMessage("§cUso: /clan invite <jugador>")
+                    player.sendMessage("§cUso: /clan invite <jugador>")
                     return true
                 }
-                
-                plugin.plugin.clanManager.inviteToClan(sender, args[1])
+
+                // chargedPlugin.clanManager.inviteToClan(player, args[1])
+                player.sendMessage("§aInvitar a ${args[1]}...")
             }
-            
+
             "leave" -> {
-                plugin.plugin.clanManager.leaveClan(sender)
+                // chargedPlugin.clanManager.leaveClan(player)
+                player.sendMessage("§cSaliendo del clan...")
             }
-            
+
             "info" -> {
-                val clan = plugin.plugin.clanManager.getPlayerClan(sender.uniqueId)
-                if (clan == null) {
-                    sender.sendMessage("§cNo estás en un clan.")
-                    return true
-                }
-                
-                sender.sendMessage("§6§l━━━ [${clan.tag}] ${clan.name} ━━━")
-                sender.sendMessage("§7Líder: §f${plugin.server.getOfflinePlayer(clan.ownerUuid).name}")
-                sender.sendMessage("§7Miembros: §f${clan.members.size}")
-                sender.sendMessage("§7Nivel: §f${clan.level}")
-                sender.sendMessage("§7Victorias: §a${clan.wins}")
-                sender.sendMessage("§7Derrotas: §c${clan.losses}")
-                sender.sendMessage("§7WLR: §f${String.format("%.2f", clan.wlr)}")
+                // val clan = chargedPlugin.clanManager.getPlayerClan(player.uniqueId)
+                // if (clan == null) {
+                player.sendMessage("§cNo estás en un clan.")
+                //     return true
+                // }
+
+                // player.sendMessage("§6§l━━━ [${clan.tag}] ${clan.name} ━━━")
+                player.sendMessage("§cSistema de clanes en desarrollo...")
             }
-            
+
             "list" -> {
-                val clan = plugin.plugin.clanManager.getPlayerClan(sender.uniqueId)
-                if (clan == null) {
-                    sender.sendMessage("§cNo estás en un clan.")
-                    return true
-                }
-                
-                sender.sendMessage("§6§lMiembros de [${clan.tag}]:")
-                clan.members.forEach { member ->
-                    val roleColor = when (member.role) {
-                        com.charged.clan.model.ClanRole.OWNER -> "§c★"
-                        com.charged.clan.model.ClanRole.ADMIN -> "§6★"
-                        com.charged.clan.model.ClanRole.MEMBER -> "§7"
-                    }
-                    sender.sendMessage("$roleColor ${member.name}")
-                }
+                player.sendMessage("§6§lSistema de clanes en desarrollo...")
             }
-            
-            else -> sendHelp(sender)
+
+            else -> sendHelp(player)
         }
-        
+
         return true
     }
-    
+
     private fun sendHelp(player: Player) {
         player.sendMessage("§6§lComandos de Clan:")
         player.sendMessage("§7/clan create <tag> <nombre> §8- §fCrear clan")
