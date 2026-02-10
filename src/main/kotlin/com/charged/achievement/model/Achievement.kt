@@ -1,25 +1,21 @@
 package com.charged.achievement.model
 
+// Versión correcta que usa AchievementReward
 data class Achievement(
     val id: String,
     val name: String,
     val description: String,
     val category: AchievementCategory,
     val requirement: Int,
-    val reward: AchievementReward,
+    val reward: AchievementReward,  // ¡Importante! Es AchievementReward, no Int
     val secret: Boolean = false
 )
 
-enum class AchievementCategory {
-    KILLS,
-    WINS,
-    STREAKS,
-    MODES,
-    SOCIAL,
-    SECRET
-}
-
 data class AchievementReward(
-    val coins: Int = 0,
-    val title: String? = null
+    val xp: Int,
+    val coins: Int
 )
+
+enum class AchievementCategory {
+    KILLS, WINS, STREAKS, MODES, SOCIAL, SECRET
+}
