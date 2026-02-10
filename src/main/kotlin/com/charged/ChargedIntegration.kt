@@ -1,6 +1,8 @@
 package com.charged
 
-import com.charged.commands.*
+import com.charged.command.BuildModeCommand
+import com.charged.command.MenuCommand
+import com.charged.command.StaffModeCommand
 import com.charged.menu.*
 import com.charged.mode.*
 
